@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using TrainFit.ViewModels;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -40,8 +41,19 @@ namespace TrainFit
 
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
+            container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
+
+            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
 
             return returnTask;
+        }
+
+        private Type ResolveViewModelType(Type viewType)
+        {
+            var viewModelNameSpace = viewType.FullName.Replace("Views", "ViewModels");
+            var viewModelType = viewModelNameSpace.Replace("Page", "ViewModel");
+
+            return Type.GetType(viewModelType);
         }
 
         protected override object Resolve(Type type)
