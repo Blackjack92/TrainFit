@@ -124,15 +124,27 @@ namespace TrainFit.TrainFit_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
-            _typeNameTable[0] = "TrainFit.MainPage";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable = new string[9];
+            _typeNameTable[0] = "Microsoft.Practices.Prism.Mvvm.MvvmAppBase";
+            _typeNameTable[1] = "Windows.UI.Xaml.Application";
+            _typeNameTable[2] = "Boolean";
+            _typeNameTable[3] = "Microsoft.Practices.Prism.Mvvm.ViewModelLocator";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[6] = "TrainFit.Views.MainPage";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[3];
-            _typeTable[0] = typeof(global::TrainFit.MainPage);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable = new global::System.Type[9];
+            _typeTable[0] = typeof(global::Microsoft.Practices.Prism.Mvvm.MvvmAppBase);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
+            _typeTable[2] = typeof(global::System.Boolean);
+            _typeTable[3] = typeof(global::Microsoft.Practices.Prism.Mvvm.ViewModelLocator);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[6] = typeof(global::TrainFit.Views.MainPage);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -167,7 +179,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::TrainFit.MainPage(); }
+        private object Activate_6_MainPage() { return new global::TrainFit.Views.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -179,18 +191,46 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  TrainFit.MainPage
+            case 0:   //  Microsoft.Practices.Prism.Mvvm.MvvmAppBase
+                userType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Application"));
+                userType.AddMemberName("IsSuspending");
+                xamlType = userType;
+                break;
+
+            case 1:   //  Windows.UI.Xaml.Application
+                xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Boolean
+                xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Microsoft.Practices.Prism.Mvvm.ViewModelLocator
+                userType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("AutoWireViewModel");
+                xamlType = userType;
+                break;
+
+            case 4:   //  Object
+                xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  TrainFit.Views.MainPage
                 userType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+                userType.Activator = Activate_6_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
+            case 7:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+            case 8:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -198,11 +238,42 @@ namespace TrainFit.TrainFit_XamlTypeInfo
         }
 
 
+        private object get_0_MvvmAppBase_IsSuspending(object instance)
+        {
+            var that = (global::Microsoft.Practices.Prism.Mvvm.MvvmAppBase)instance;
+            return that.IsSuspending;
+        }
+        private object get_1_ViewModelLocator_AutoWireViewModel(object instance)
+        {
+            return global::Microsoft.Practices.Prism.Mvvm.ViewModelLocator.GetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_1_ViewModelLocator_AutoWireViewModel(object instance, object Value)
+        {
+            global::Microsoft.Practices.Prism.Mvvm.ViewModelLocator.SetAutoWireViewModel((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Boolean)Value);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::TrainFit.TrainFit_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Microsoft.Practices.Prism.Mvvm.MvvmAppBase.IsSuspending":
+                userType = (global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Practices.Prism.Mvvm.MvvmAppBase");
+                xamlMember = new global::TrainFit.TrainFit_XamlTypeInfo.XamlMember(this, "IsSuspending", "Boolean");
+                xamlMember.Getter = get_0_MvvmAppBase_IsSuspending;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Microsoft.Practices.Prism.Mvvm.ViewModelLocator.AutoWireViewModel":
+                userType = (global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Practices.Prism.Mvvm.ViewModelLocator");
+                xamlMember = new global::TrainFit.TrainFit_XamlTypeInfo.XamlMember(this, "AutoWireViewModel", "Boolean");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_1_ViewModelLocator_AutoWireViewModel;
+                xamlMember.Setter = set_1_ViewModelLocator_AutoWireViewModel;
+                break;
+            }
             return xamlMember;
         }
     }
