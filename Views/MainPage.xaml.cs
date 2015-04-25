@@ -14,22 +14,20 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
-
 namespace TrainFit.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page, IView
+    public sealed partial class MainPage : IView
     {
+        #region ctor
         public MainPage()
         {
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
+        #endregion
 
+        #region methods
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
         /// </summary>
@@ -45,5 +43,6 @@ namespace TrainFit.Views
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+        #endregion
     }
 }

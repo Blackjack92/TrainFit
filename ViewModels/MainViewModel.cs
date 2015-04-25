@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace TrainFit.ViewModels
 {
-    public class MainViewModel : BindableBase
+    public class MainViewModel : ViewModel
     {
         #region fields
         private string text;

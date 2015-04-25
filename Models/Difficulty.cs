@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrainFit.Presentation.Views
+namespace TrainFit.Models
 {
-    public interface IView
+    public enum Difficulty
     {
+        Hard,
+        Normal,
+        Easy
     }
 }
