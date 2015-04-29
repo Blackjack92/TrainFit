@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace TrainFit.ViewModels
 {
-    public class MainViewModel : ViewModel
+    public class LoginViewModel : ViewModel
     {
         #region fields
         private string text;
@@ -29,7 +29,7 @@ namespace TrainFit.ViewModels
         #endregion
 
         #region ctor
-        public MainViewModel()
+        public LoginViewModel()
         {
             ChangeTextCommand = new DelegateCommand(ChangeText);
         }

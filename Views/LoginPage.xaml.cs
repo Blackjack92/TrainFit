@@ -16,10 +16,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace TrainFit.Views
 {
-    public sealed partial class MainPage : IView
+    public sealed partial class LoginPage : IView
     {
         #region ctor
-        public MainPage()
+        public LoginPage()
         {
             this.InitializeComponent();
 

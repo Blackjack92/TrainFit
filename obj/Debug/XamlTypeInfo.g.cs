@@ -131,7 +131,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             _typeNameTable[3] = "Microsoft.Practices.Prism.Mvvm.ViewModelLocator";
             _typeNameTable[4] = "Object";
             _typeNameTable[5] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[6] = "TrainFit.Views.MainPage";
+            _typeNameTable[6] = "TrainFit.Views.LoginPage";
             _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
 
@@ -142,7 +142,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             _typeTable[3] = typeof(global::Microsoft.Practices.Prism.Mvvm.ViewModelLocator);
             _typeTable[4] = typeof(global::System.Object);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[6] = typeof(global::TrainFit.Views.MainPage);
+            _typeTable[6] = typeof(global::TrainFit.Views.LoginPage);
             _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
@@ -179,7 +179,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_6_MainPage() { return new global::TrainFit.Views.MainPage(); }
+        private object Activate_6_LoginPage() { return new global::TrainFit.Views.LoginPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -219,9 +219,9 @@ namespace TrainFit.TrainFit_XamlTypeInfo
                 xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  TrainFit.Views.MainPage
+            case 6:   //  TrainFit.Views.LoginPage
                 userType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
+                userType.Activator = Activate_6_LoginPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

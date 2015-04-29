@@ -31,7 +31,7 @@ namespace TrainFit
         #region methods
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
-            NavigationService.Navigate("Main", null);
+            NavigationService.Navigate("Login", null);
             return Task.FromResult<object>(null);
         }
 
@@ -41,7 +41,7 @@ namespace TrainFit
 
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
-            container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
 
