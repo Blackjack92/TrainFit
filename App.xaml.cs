@@ -42,6 +42,7 @@ namespace TrainFit
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
 

@@ -3,6 +3,7 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="ChangeTextCommand" />
     <RootPropertyPathName Name="Text" />
+    <RootPropertyPathName Name="BackCommand" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Microsoft.Practices.Prism.Mvvm.MvvmAppBase" />
@@ -49,5 +50,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="TrainFit.Views.LoginPage" />
+    <RootType FullName="TrainFit.Views.MainPage" />
   </Roots.RootTypes>
 </Roots>

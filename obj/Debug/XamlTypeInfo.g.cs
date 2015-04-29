@@ -124,7 +124,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[10];
             _typeNameTable[0] = "Microsoft.Practices.Prism.Mvvm.MvvmAppBase";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
             _typeNameTable[2] = "Boolean";
@@ -134,8 +134,9 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             _typeNameTable[6] = "TrainFit.Views.LoginPage";
             _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[9] = "TrainFit.Views.MainPage";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[10];
             _typeTable[0] = typeof(global::Microsoft.Practices.Prism.Mvvm.MvvmAppBase);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[2] = typeof(global::System.Boolean);
@@ -145,6 +146,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
             _typeTable[6] = typeof(global::TrainFit.Views.LoginPage);
             _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[9] = typeof(global::TrainFit.Views.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -180,6 +182,7 @@ namespace TrainFit.TrainFit_XamlTypeInfo
         }
 
         private object Activate_6_LoginPage() { return new global::TrainFit.Views.LoginPage(); }
+        private object Activate_9_MainPage() { return new global::TrainFit.Views.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -232,6 +235,13 @@ namespace TrainFit.TrainFit_XamlTypeInfo
 
             case 8:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  TrainFit.Views.MainPage
+                userType = new global::TrainFit.TrainFit_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
@@ -598,5 +608,6 @@ namespace TrainFit.TrainFit_XamlTypeInfo
         }
     }
 }
+
 
 
