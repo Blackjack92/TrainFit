@@ -8,15 +8,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    storeApps:ViewModelLocator.AutoWireViewModel="True">    
-    
+    storeApps:ViewModelLocator.AutoWireViewModel="True">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         
-        <TextBlock Grid.Row="0" Text="{Binding Text}"/>
-        <Button Grid.Row="1" Content="Change" Command="{Binding ChangeTextCommand}" />
+        <TextBlock x:Uid="tbTrainFit" Grid.Row="0" Grid.ColumnSpan="2" Style="{ThemeResource HeaderTextBlockStyle}" Text="t_TrainFit"/>
+
+        <!-- Login -->
+        <TextBlock x:Uid="tbUser" Grid.Row="1" Grid.Column="0" Text="t_User:" Style="{ThemeResource BaseTextBlockStyle}" VerticalAlignment="Center" Margin="10,0"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Text}" Margin="10" />
+
+        <TextBlock x:Uid="tbPassword" Grid.Row="2" Grid.Column="0" Text="t_Password:" Style="{ThemeResource BaseTextBlockStyle}" VerticalAlignment="Center" Margin="10,0"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Text}" Margin="10" />
+        
+        <Button x:Uid="btnLogin" Grid.Row="3" Grid.ColumnSpan="2" Content="t_Login" Command="{Binding ChangeTextCommand}" HorizontalAlignment="Center" />
     </Grid>
 </Page>

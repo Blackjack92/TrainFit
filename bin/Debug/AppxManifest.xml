@@ -20,6 +20,7 @@
   </Prerequisites>
   <Resources>
     <Resource Language="EN-US" />
+    <Resource Language="DE" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="TrainFit.exe" EntryPoint="TrainFit.App">
