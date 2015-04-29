@@ -1,1 +1,1 @@
-E:\VSPhoneAPP\TrainFit.csproj;neutral
+W:\C#Projects\TrainFit\TrainFit.csproj;neutral

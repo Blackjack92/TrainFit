@@ -1,15 +1,12 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="e:\vsphoneapp\obj\debug\intermediatexaml\trainfit.exe" HashGuid="f6310b9f-de89-c9f8-9947-755a2d0c963d" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\mvvmlightlibs.5.1.1.0\lib\wpa81\galasoft.mvvmlight.dll" HashGuid="d702f8e6-9904-1220-8de7-be8614bf93e8" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\mvvmlightlibs.5.1.1.0\lib\wpa81\galasoft.mvvmlight.extras.dll" HashGuid="f59e2cac-89a1-06f4-bbe7-18857251ef78" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\mvvmlightlibs.5.1.1.0\lib\wpa81\galasoft.mvvmlight.platform.dll" HashGuid="27c4f135-c15f-18a2-cb9f-847748d33bdb" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.mvvm.dll" HashGuid="cbdd458f-3f7b-91dd-175a-6fbe0d8f860e" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.mvvm.phone.dll" HashGuid="347692ae-d3bb-41c8-00a0-1222d3d82e87" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.sharedinterfaces.dll" HashGuid="77ddb96d-234e-bbe6-7043-530fe79bc489" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\prism.storeapps.2.0.0\lib\wpa81\microsoft.practices.prism.storeapps.dll" HashGuid="480782f1-e4b6-714d-0927-945a03634ad1" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\prism.storeapps.2.0.0\lib\wpa81\microsoft.practices.prism.storeapps.phone.dll" HashGuid="aa6e2f7a-71df-e1ca-7524-7ca1d4a1bf08" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\commonservicelocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\microsoft.practices.servicelocation.dll" HashGuid="89de7f80-26d8-a17c-5ad9-b855f81ea5b2" />
-    <ReferenceAssembly PathName="e:\vsphoneapp\packages\unity.3.5.1405-prerelease\lib\portable-net45+wp80+win8+wpa81+monoandroid10+monotouch10\microsoft.practices.unity.dll" HashGuid="bfbab92e-125a-5b6e-9ddc-f777451b52b9" />
+    <LocalAssembly PathName="w:\c#projects\trainfit\obj\debug\intermediatexaml\trainfit.exe" HashGuid="8925e428-9d2f-af4e-1245-f6c4e37c68fd" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.mvvm.dll" HashGuid="cbdd458f-3f7b-91dd-175a-6fbe0d8f860e" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.mvvm.phone.dll" HashGuid="347692ae-d3bb-41c8-00a0-1222d3d82e87" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.sharedinterfaces.dll" HashGuid="77ddb96d-234e-bbe6-7043-530fe79bc489" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\prism.storeapps.2.0.0\lib\wpa81\microsoft.practices.prism.storeapps.dll" HashGuid="480782f1-e4b6-714d-0927-945a03634ad1" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\prism.storeapps.2.0.0\lib\wpa81\microsoft.practices.prism.storeapps.phone.dll" HashGuid="aa6e2f7a-71df-e1ca-7524-7ca1d4a1bf08" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\commonservicelocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\microsoft.practices.servicelocation.dll" HashGuid="89de7f80-26d8-a17c-5ad9-b855f81ea5b2" />
+    <ReferenceAssembly PathName="w:\c#projects\trainfit\packages\unity.3.5.1405-prerelease\lib\portable-net45+wp80+win8+wpa81+monoandroid10+monotouch10\microsoft.practices.unity.dll" HashGuid="bfbab92e-125a-5b6e-9ddc-f777451b52b9" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

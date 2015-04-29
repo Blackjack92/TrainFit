@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace TrainFit.ViewModels
 {
-    public class MainViewModel : ViewModel.MainViewModel
+    public class MainViewModel : ViewModel
     {
         #region fields
         private string text;
@@ -23,11 +23,6 @@ namespace TrainFit.ViewModels
             {
                 SetProperty(ref text, value);
             }
-        }
-
-        private void SetProperty(ref string text, string value)
-        {
-            throw new NotImplementedException();
         }
 
         public ICommand ChangeTextCommand { get; private set; }
