@@ -198,3 +198,4 @@ FakesAssemblies/
 # =================================== Customized ==================================
 # Our Output-folder
 bin/
+obj/
