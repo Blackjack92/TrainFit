@@ -26,7 +26,7 @@
         <TextBlock x:Uid="tbTrainFit" Grid.Row="0" Grid.ColumnSpan="2" Style="{ThemeResource HeaderTextBlockStyle}" Text="t_TrainFit"/>
 
         <!-- Login -->
-        <TextBlock x:Uid="tbUser" Grid.Row="1" Grid.Column="0" Text="t_User:" Style="{ThemeResource BaseTextBlockStyle}" VerticalAlignment="Center" Margin="10,0"/>
+        <TextBlock x:Uid="tbUser" Grid.Row="1" Grid.Column="0" Text="t_User:" Style="{StaticResource TextBlock.Light}" VerticalAlignment="Center" Margin="10,0"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Text}" Margin="10" />
 
         <TextBlock x:Uid="tbPassword" Grid.Row="2" Grid.Column="0" Text="t_Password:" Style="{ThemeResource BaseTextBlockStyle}" VerticalAlignment="Center" Margin="10,0"/>
