@@ -26,5 +26,13 @@ namespace TrainFit.Models
             } 
         }
         #endregion
+
+        #region properties
+        //TODO: remove this method --> only used for test purposes
+        public void SetName(string name)
+        {
+            Name = name;
+        }
+        #endregion
     }
 }
