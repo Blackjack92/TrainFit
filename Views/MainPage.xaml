@@ -6,15 +6,38 @@
     xmlns:local="using:TrainFit.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="using:TrainFit.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <Controls:HamburgerMenu x:Name="hamburger" LeftPaneWidth="300">
+        <Controls:HamburgerMenu.LeftPane>
+            <!-- Define your left pane here -->
+            <StackPanel Background="{StaticResource BaseColor.Yellow}">
+                <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Light}" />
+                
+                <TextBlock Margin="20" TextWrapping="Wrap">
+                		<Run Text="Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!"/>
+                </TextBlock>
+            </StackPanel>
+        </Controls:HamburgerMenu.LeftPane>
 
-        <Button x:Uid="btnBack" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" />
-    </Grid>
+        <Grid Background="{StaticResource BaseColor.Gray}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Background="{StaticResource BaseColor.Yellow}">
+                <!-- Element you should use in your body to help you open/close the left pane -->
+                <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Light}" />
+            </Grid>
+
+            <Button x:Uid="btnBack" Grid.Row="1" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Grid>
+    </Controls:HamburgerMenu>
 </Page>
