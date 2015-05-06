@@ -29,6 +29,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -38,6 +39,7 @@
             </Grid>
 
             <Button x:Uid="btnBack" Grid.Row="1" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Uid="btnRegisterNow" Grid.Row="2" Content="t_Register" Command="{Binding RegisterCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         </Grid>
     </Controls:HamburgerMenu>
 </Page>
