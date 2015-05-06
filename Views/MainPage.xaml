@@ -15,11 +15,12 @@
         <Controls:HamburgerMenu.LeftPane>
             <!-- Define your left pane here -->
             <StackPanel Background="{StaticResource BaseTheme.Gray}">
-                <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
+                <StackPanel Background="{StaticResource BaseTheme.Menubar}">
+                    <!-- Element you should use in your body to help you open/close the left pane -->
+                    <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
+                </StackPanel>
                 
-                <TextBlock Margin="20" TextWrapping="Wrap">
-                		<Run Text="Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!"/>
-                </TextBlock>
+                <TextBlock Margin="20" TextWrapping="Wrap" Text="Sidebar" />
             </StackPanel>
         </Controls:HamburgerMenu.LeftPane>
 
