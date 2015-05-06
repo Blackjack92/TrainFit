@@ -15,8 +15,17 @@
 
     <!-- New colors -->
     <SolidColorBrush x:Key="BaseColor.Yellow" Color="#FCEE21" />
-    <SolidColorBrush x:Key="BaseColor.Gray" Color="#333333" />
+    <!--<SolidColorBrush x:Key="BaseColor.Gray" Color="#333333" />-->
+    <SolidColorBrush x:Key="BaseColor.Gray" Color="#BEBEBE" />
+    <!--<SolidColorBrush x:Key="BaseColor.Gray" Color="White" />-->
 
+    <LinearGradientBrush x:Key="crazyBackground" StartPoint="0,0" EndPoint="1,0">
+        <!--<GradientStop Color="#D3D3D3" />-->
+        <!--<GradientStop Color="#FCEE21" />-->
+        <GradientStop Color="#BEBEBE" />
+        <GradientStop Color="White" Offset="0.75"/>
+    </LinearGradientBrush>
+    
     <Style x:Key="TextBlock.Base" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#278ea3" />
         <Setter Property="FontSize" Value="23" />
@@ -60,9 +69,11 @@
                 <ControlTemplate TargetType="ToggleButton">
                     <Grid Margin="10,0" Background="Transparent">
                         <Canvas HorizontalAlignment="Left" Width="30" Height="42">
-                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FF919292" Height="2" Stretch="None" Canvas.Top="10" Width="30" />
-                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FF919292" Height="2" Stretch="None" Canvas.Top="20" Width="30" />
-                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FF919292" Height="2" Stretch="None" Canvas.Top="30" Width="30" />
+                            <!--#FF919292-->
+                            <!--#FCEE21-->
+                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FCEE21" Height="2" Stretch="None" Canvas.Top="10" Width="30" />
+                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FCEE21" Height="2" Stretch="None" Canvas.Top="20" Width="30" />
+                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FCEE21" Height="2" Stretch="None" Canvas.Top="30" Width="30" />
                         </Canvas>
                     </Grid>
                 </ControlTemplate>

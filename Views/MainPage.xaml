@@ -32,9 +32,15 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Grid Background="{StaticResource BaseColor.Yellow}">
+            <Grid Background="{StaticResource crazyBackground}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
                 <!-- Element you should use in your body to help you open/close the left pane -->
-                <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Light}" />
+                <ToggleButton Grid.Column="0" IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Light}" />
+                <Image Grid.Column="1" Source="../Images/Logo-light.jpg" Height="50" Margin="5,0" />
             </Grid>
 
             <Button x:Uid="btnBack" Grid.Row="1" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
