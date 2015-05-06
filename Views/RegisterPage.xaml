@@ -18,12 +18,31 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+
+        <TextBlock x:Uid="tbTrainFit" Grid.Row="0" Grid.ColumnSpan="2" Style="{ThemeResource HeaderTextBlockStyle}" Text="t_TrainFit"/>
+        <TextBlock x:Uid="tbFirstName" Grid.Row="1" Grid.Column="0" Text="FirstName:" Style="{StaticResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding FirstName}" Margin="20" />
+
+
+        <TextBlock x:Uid="tbLastName" Grid.Row="2" Grid.Column="0" Text="LastName:" Style="{ThemeResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding LastName}" Margin="20" />
+        
+        <TextBlock x:Uid="tbEMailAdress" Grid.Row="3" Grid.Column="0" Text="EMail Adress:" Style="{ThemeResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding EmailAddress}" Margin="20" />
+        
+        <TextBlock x:Uid="tbPassword" Grid.Row="4" Grid.Column="0" Text="Password:" Style="{ThemeResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Password}" Margin="20" />
+
+        <Button x:Uid="btnRegister" Grid.Row="6" Grid.ColumnSpan="2" Content="Register" Style="{ThemeResource Button.Base}" Command="{Binding ChangeTextFieldsCommand}" HorizontalAlignment="Center" Margin="20"/>
+
     </Grid>
 
 </Page>

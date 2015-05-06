@@ -19,13 +19,21 @@ namespace TrainFit.ViewModels
         #region properties
         public ICommand BackCommand { get; private set; }
         #endregion
+        public ICommand RegisterCommand { get; private set; }
 
         #region ctor
         public MainViewModel(INavigationService navigationService)
         {
+            //TODO : Change this it creats a bug
             this.navigationService = navigationService;
             BackCommand = new DelegateCommand(navigationService.GoBack);
+            RegisterCommand = new DelegateCommand(ChangeToRegisterPage);
         }
         #endregion
+
+        private void ChangeToRegisterPage()
+        {
+            navigationService.Navigate("Register", null);
+        }
     }
 }
