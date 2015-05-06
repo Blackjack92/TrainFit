@@ -1,12 +1,11 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TrainFit.Styling"
-    xmlns:platform="using:TrainFit.Platform">
+    xmlns:local="using:TrainFit.Styling">
 
     <!-- TODO: Add shared dictionary: http://www.wpftutorial.net/MergedDictionaryPerformance.html -->
     <ResourceDictionary.MergedDictionaries>
-        <platform:SharedResourceDictionary Source="BaseStyles.xaml"/>
+        <ResourceDictionary Source="BaseStyles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Menubar -->
