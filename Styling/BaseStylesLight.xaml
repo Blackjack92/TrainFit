@@ -14,4 +14,6 @@
         <GradientStop Color="{StaticResource BaseColor.White}" Offset="0.75"/>
     </LinearGradientBrush>
 
+    <!-- Images -->
+    <BitmapImage x:Key="BaseImage.Logo" UriSource="../Images/Logo-light.jpg" />
 </ResourceDictionary>

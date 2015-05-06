@@ -41,7 +41,7 @@
                 
                 <!-- Element you should use in your body to help you open/close the left pane -->
                 <ToggleButton Grid.Column="0" IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
-                <Image Grid.Column="1" Source="../Images/Logo-light.jpg" Height="50" Margin="5,0" />
+                <Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />
             </Grid>
 
             <Button x:Uid="btnBack" Grid.Row="1" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>

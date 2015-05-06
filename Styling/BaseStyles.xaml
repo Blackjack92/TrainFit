@@ -129,7 +129,7 @@
         <Setter Property="Foreground" Value="{StaticResource BaseColor.Yellow}" />
         <Setter Property="Background" Value="Transparent" />
     </Style>
-
+    
     <!-- Set default styles -->
     <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}" />
     <Style TargetType="Button" BasedOn="{StaticResource Button.Base}" />
