@@ -14,7 +14,7 @@
     <Controls:HamburgerMenu x:Name="hamburger" LeftPaneWidth="300">
         <Controls:HamburgerMenu.LeftPane>
             <!-- Define your left pane here -->
-            <StackPanel Background="{StaticResource BaseColor.Yellow}">
+            <StackPanel Background="{StaticResource BaseTheme.Yellow}">
                 <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Light}" />
                 
                 <TextBlock Margin="20" TextWrapping="Wrap">
@@ -23,7 +23,7 @@
             </StackPanel>
         </Controls:HamburgerMenu.LeftPane>
 
-        <Grid Background="{StaticResource BaseColor.Gray}">
+        <Grid Background="{StaticResource BaseTheme.Gray}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>

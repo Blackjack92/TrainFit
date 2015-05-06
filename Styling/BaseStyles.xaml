@@ -4,27 +4,18 @@
     xmlns:local="using:TrainFit.Styling"
     xmlns:controls="using:TrainFit.Controls">
 
-    <!-- Old colors -->
-    <SolidColorBrush x:Key="Grid.Default" Color="#EDF3F5" />
-    <SolidColorBrush x:Key="Grid.Header" Color="#80b4ba" />
-    <SolidColorBrush x:Key="Grid.Footer" Color="#80b4ba" />
-
-    <SolidColorBrush x:Key="Grid.Background" Color="#EDF3F5" />
-    <SolidColorBrush x:Key="TextBox.Foreground" Color="#EDF3F5" />
-    <SolidColorBrush x:Key="TextBox.Border" Color="#EDF3F5" />
-
-    <!-- New colors -->
-    <SolidColorBrush x:Key="BaseColor.Yellow" Color="#FCEE21" />
-    <!--<SolidColorBrush x:Key="BaseColor.Gray" Color="#333333" />-->
-    <SolidColorBrush x:Key="BaseColor.Gray" Color="#BEBEBE" />
-    <!--<SolidColorBrush x:Key="BaseColor.Gray" Color="White" />-->
-
-    <LinearGradientBrush x:Key="crazyBackground" StartPoint="0,0" EndPoint="1,0">
-        <!--<GradientStop Color="#D3D3D3" />-->
-        <!--<GradientStop Color="#FCEE21" />-->
-        <GradientStop Color="#BEBEBE" />
-        <GradientStop Color="White" Offset="0.75"/>
-    </LinearGradientBrush>
+    <!-- Default colors -->
+    <Color x:Key="BaseColor.Yellow">#FCEE21</Color>
+    <Color x:Key="BaseColor.DarkGray">#333333</Color>
+    <Color x:Key="BaseColor.Gray">#BEBEBE</Color>
+    <Color x:Key="BaseColor.White">#FFFFFF</Color>
+    <Color x:Key="BaseColor.Black">#000000</Color>
+    
+    <!-- Default color brushes -->
+    <SolidColorBrush x:Key="BaseTheme.Yellow" Color="{StaticResource BaseColor.Yellow}" />
+    <SolidColorBrush x:Key="BaseTheme.DarkGray" Color="{StaticResource BaseColor.DarkGray}" />
+    <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
+    <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
     
     <Style x:Key="TextBlock.Base" TargetType="TextBlock">
         <Setter Property="Foreground" Value="#278ea3" />

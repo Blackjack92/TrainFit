@@ -9,8 +9,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styling/BaseStyles.xaml" x:Name="BaseStyles" />
-                <ResourceDictionary Source="Styling/BaseStylesLight.xaml" x:Name="BaseStyles.Light" />
-                <ResourceDictionary Source="Styling/BaseStylesDark.xaml" x:Name="BaseStyles.Dark" />
+                <ResourceDictionary Source="Styling/BaseStylesLight.xaml" x:Name="BaseStylesLight" />
+                <ResourceDictionary Source="Styling/BaseStylesDark.xaml" x:Name="BaseStylesDark" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

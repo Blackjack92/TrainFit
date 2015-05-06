@@ -39,6 +39,19 @@ namespace TrainFit
         {
             var returnTask = base.OnInitializeAsync(args);
 
+            // Initialize UI stuff
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                // Remove light theme
+                App.Current.Resources.MergedDictionaries.RemoveAt(1);
+            }
+            else
+            {
+                // Remove dark theme
+                App.Current.Resources.MergedDictionaries.RemoveAt(2);
+            }
+
+            // Initialize IOC stuff
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
