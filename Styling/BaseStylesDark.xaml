@@ -9,7 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Menubar -->
-    <LinearGradientBrush x:Key="crazyBackground" StartPoint="0,0" EndPoint="1,0">
+    <LinearGradientBrush x:Key="BaseTheme.Menubar" StartPoint="0,0" EndPoint="1,0">
         <GradientStop Color="{StaticResource BaseColor.Gray}" />
         <GradientStop Color="{StaticResource BaseColor.Black}" Offset="0.75"/>
     </LinearGradientBrush>

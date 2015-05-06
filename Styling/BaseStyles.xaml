@@ -7,6 +7,7 @@
     <!-- Default colors -->
     <Color x:Key="BaseColor.Yellow">#FCEE21</Color>
     <Color x:Key="BaseColor.DarkGray">#333333</Color>
+    <Color x:Key="BaseColor.LightGray">#CCCCCC</Color>
     <Color x:Key="BaseColor.Gray">#BEBEBE</Color>
     <Color x:Key="BaseColor.White">#FFFFFF</Color>
     <Color x:Key="BaseColor.Black">#000000</Color>
@@ -14,30 +15,26 @@
     <!-- Default color brushes -->
     <SolidColorBrush x:Key="BaseTheme.Yellow" Color="{StaticResource BaseColor.Yellow}" />
     <SolidColorBrush x:Key="BaseTheme.DarkGray" Color="{StaticResource BaseColor.DarkGray}" />
+    <SolidColorBrush x:Key="BaseTheme.LightGray" Color="{StaticResource BaseColor.LightGray}" />
     <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
     <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
     
+    <!-- Default styles -->
     <Style x:Key="TextBlock.Base" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="#278ea3" />
-        <Setter Property="FontSize" Value="23" />
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkGray}" />
+        <Setter Property="FontSize" Value="24" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Margin" Value="0,0,0,0" />
         <Setter Property="Padding" Value="0,0,0,0" />
-    </Style>
-
-    <!-- Style for textblock element -->
-    <Style x:Key="TextBlock.Light" TargetType="TextBlock" BasedOn="{StaticResource ResourceKey=TextBlock.Base}">
         <Setter Property="FontWeight" Value="Thin" />
-        <Setter Property="Foreground" Value="#55FF55" />
-        <Setter Property="FontSize" Value="50" />
     </Style>
 
     <Style x:Key="Button.Base" TargetType="Button">
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="BorderBrush" Value="LightGray" />
-        <Setter Property="Background" Value="#80b4ba" />
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.Black}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BaseColor.DarkGray}" />
+        <Setter Property="Background" Value="{StaticResource BaseColor.LightGray}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -53,18 +50,15 @@
         </Setter>
     </Style>
 
-    <!-- Style for hamburger button element -->
-    <Style x:Key="HamburgerToggleButton.Light" TargetType="ToggleButton">
+    <Style x:Key="HamburgerToggleButton.Base" TargetType="ToggleButton">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Grid Margin="10,0" Background="Transparent">
+                    <Grid Margin="10,0" Background="{TemplateBinding Background}">
                         <Canvas HorizontalAlignment="Left" Width="30" Height="42">
-                            <!--#FF919292-->
-                            <!--#FCEE21-->
-                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FCEE21" Height="2" Stretch="None" Canvas.Top="10" Width="30" />
-                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FCEE21" Height="2" Stretch="None" Canvas.Top="20" Width="30" />
-                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="#FCEE21" Height="2" Stretch="None" Canvas.Top="30" Width="30" />
+                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="{TemplateBinding Foreground}" Height="2" Stretch="None" Canvas.Top="10" Width="30" />
+                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="{TemplateBinding Foreground}" Height="2" Stretch="None" Canvas.Top="20" Width="30" />
+                            <Path Data="F1M0,2L30,2 30,0 0,0z" Fill="{TemplateBinding Foreground}" Height="2" Stretch="None" Canvas.Top="30" Width="30" />
                         </Canvas>
                     </Grid>
                 </ControlTemplate>
@@ -75,7 +69,6 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
-    <!-- Default style for hamburger menu -->
     <Style x:Key="HamburgerMenu.Base" TargetType="controls:HamburgerMenu">
         <Setter Property="Template">
             <Setter.Value>
@@ -131,6 +124,14 @@
         </Setter>
     </Style>
 
+    <!-- Explizit styles -->
+    <Style x:Key="HamburgerToggleButton.Menubar" TargetType="ToggleButton" BasedOn="{StaticResource HamburgerToggleButton.Base}">
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.Yellow}" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <!-- Set default styles -->
     <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}" />
+    <Style TargetType="Button" BasedOn="{StaticResource Button.Base}" />
     <Style TargetType="controls:HamburgerMenu" BasedOn="{StaticResource HamburgerMenu.Base}" />
 </ResourceDictionary>
