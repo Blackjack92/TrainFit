@@ -89,6 +89,7 @@
     <Compile Include="Models\Difficulty.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Platform\SharedResourceDictionary.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
