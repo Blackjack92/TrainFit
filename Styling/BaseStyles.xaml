@@ -199,19 +199,39 @@
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="HorizontalAlignment" Value="Stretch" /> 
+        <Setter Property="Padding" Value="2" />
     </Style>
 
+    <!-- TODO: write own Imagebutton -->
     <Style x:Key="Sidebar.Base" TargetType="controls:Sidebar">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Sidebar">
                     <StackPanel Background="{StaticResource BaseTheme.Gray}">
-                        <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
-                        <Button x:Name="btnProfile" Content="Profile" Style="{StaticResource Button.Sidebar}" />
-                        <Button x:Name="btnExercises" Content="Exercises" Style="{StaticResource Button.Sidebar}" />
-                        <Button x:Name="btnStatistics" Content="Statistics" Style="{StaticResource Button.Sidebar}" />
-                        <Button x:Name="btnGroups" Content="Groups" Style="{StaticResource Button.Sidebar}" />
-                        <Button x:Name="btnRegister" Content="Register" Style="{StaticResource Button.Sidebar}" />
+                        <Grid>
+                            <Image Source="../Images/Weather-overcast.png" />
+                            <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <Image Source="../Images/Weather-rain.png" />
+                            <Button x:Name="btnProfile" Content="Profile" Style="{StaticResource Button.Sidebar}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Weather-snow.png" />
+                            <Button x:Name="btnExercises" Content="Exercises" Style="{StaticResource Button.Sidebar}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Weather-sun.png" />
+                            <Button x:Name="btnStatistics" Content="Statistics" Style="{StaticResource Button.Sidebar}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Weather-thunder.png" />
+                            <Button x:Name="btnGroups" Content="Groups" Style="{StaticResource Button.Sidebar}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Images/Weather-overcast.png" />
+                            <Button x:Name="btnRegister" Content="Register" Style="{StaticResource Button.Sidebar}" />
+                        </StackPanel>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

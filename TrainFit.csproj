@@ -124,6 +124,11 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Images\Logo-dark.jpg" />
     <Content Include="Images\Logo-light.jpg" />
+    <Content Include="Images\Weather-overcast.png" />
+    <Content Include="Images\Weather-rain.png" />
+    <Content Include="Images\Weather-snow.png" />
+    <Content Include="Images\Weather-sun.png" />
+    <Content Include="Images\Weather-thunder.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
