@@ -19,14 +19,22 @@
     <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
     <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
     
-    <!-- Images -->
-    <BitmapImage x:Key="BaseImage.Exercises" UriSource="../Images/Weather-overcast.png" />
-    <BitmapImage x:Key="BaseImage.Profile" UriSource="../Images/Weather-rain.png" />
-    <BitmapImage x:Key="BaseImage.Trainings" UriSource="../Images/Weather-snow.png" />
-    <BitmapImage x:Key="BaseImage.Register" UriSource="../Images/Weather-sun.png" />
-    <BitmapImage x:Key="BaseImage.Groups" UriSource="../Images/Weather-thunder.png" />
-    <BitmapImage x:Key="BaseImage.Statistics" UriSource="../Images/Weather-overcast.png" />
+    <!-- Images dark -->
+    <BitmapImage x:Key="BaseImage.Exercises.Dark" UriSource="../Images/Weather-overcast-dark.png" />
+    <BitmapImage x:Key="BaseImage.Profile.Dark" UriSource="../Images/Weather-rain-dark.png" />
+    <BitmapImage x:Key="BaseImage.Trainings.Dark" UriSource="../Images/Weather-snow-dark.png" />
+    <BitmapImage x:Key="BaseImage.Register.Dark" UriSource="../Images/Weather-sun-dark.png" />
+    <BitmapImage x:Key="BaseImage.Groups.Dark" UriSource="../Images/Weather-thunder-dark.png" />
+    <BitmapImage x:Key="BaseImage.Statistics.Dark" UriSource="../Images/Weather-overcast-dark.png" />
 
+    <!-- Images light -->
+    <BitmapImage x:Key="BaseImage.Exercises.Light" UriSource="../Images/Weather-overcast-light.png" />
+    <BitmapImage x:Key="BaseImage.Profile.Light" UriSource="../Images/Weather-rain-light.png" />
+    <BitmapImage x:Key="BaseImage.Trainings.Light" UriSource="../Images/Weather-snow-light.png" />
+    <BitmapImage x:Key="BaseImage.Register.Light" UriSource="../Images/Weather-sun-light.png" />
+    <BitmapImage x:Key="BaseImage.Groups.Light" UriSource="../Images/Weather-thunder-light.png" />
+    <BitmapImage x:Key="BaseImage.Statistics.Light" UriSource="../Images/Weather-overcast-light.png" />
+    
     <!--TODO: Add default font sizes -->
     
     <!-- Default styles -->
@@ -214,15 +222,48 @@
     <Style x:Key="ImageButton.Base" TargetType="controls:ImageButton">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:ImageButton">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="{TemplateBinding ImageSource}" />
-                        <Button Content="{TemplateBinding Content}" Style="{StaticResource Button.Sidebar}" />
+                <ControlTemplate x:Name="ImageButton" TargetType="controls:ImageButton">
+                    <Grid x:Name="Grid">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver" />
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.DarkGray}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DisplayedImage" Storyboard.TargetProperty="Source">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding ImageSourcePressed, RelativeSource={RelativeSource TemplatedParent}}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.White}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        
+                        <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
+                        
+                        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Left">
+                            
+                            <Grid HorizontalAlignment="Stretch" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Image x:Name="DisplayedImage" Source="{TemplateBinding ImageSource}" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                <TextBlock x:Name="Text" Grid.Column="1" Text="{TemplateBinding Content}" 
+                                           FontSize="24" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Stretch" 
+                                           Foreground="{TemplateBinding Foreground}" 
+                                           Margin="0"
+                                           Padding="3"/>
+                            </Grid>
+                    </ContentPresenter>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -234,30 +275,30 @@
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Sidebar">
                     <StackPanel Background="{StaticResource BaseTheme.Gray}">
-                        <!--<controls:ImageButton x:Name="btnTrainings" Content="Trainings" ImageSource="{StaticResource BaseImage.Trainings}"/>-->
+                        <controls:ImageButton x:Name="btnTrainings" Content="Trainings" ImageSource="{StaticResource BaseImage.Trainings.Dark}" ImageSourcePressed="{StaticResource BaseImage.Trainings.Light}"/>
                         
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                             <Image Source="{StaticResource BaseImage.Trainings}" />
                             <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>
+                        </StackPanel>-->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                            <Image Source="{StaticResource BaseImage.Profile}" />
+                            <Image Source="{StaticResource BaseImage.Profile.Dark}" />
                             <Button x:Name="btnProfile" Content="Profile" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Exercises}" />
+                            <Image Source="{StaticResource BaseImage.Exercises.Dark}" />
                             <Button x:Name="btnExercises" Content="Exercises" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Statistics}" />
+                            <Image Source="{StaticResource BaseImage.Statistics.Dark}" />
                             <Button x:Name="btnStatistics" Content="Statistics" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Groups}" />
+                            <Image Source="{StaticResource BaseImage.Groups.Dark}" />
                             <Button x:Name="btnGroups" Content="Groups" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Register}" />
+                            <Image Source="{StaticResource BaseImage.Register.Dark}" />
                             <Button x:Name="btnRegister" Content="Register" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                     </StackPanel>
