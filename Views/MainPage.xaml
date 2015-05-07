@@ -20,7 +20,12 @@
                     <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
                 </StackPanel>
                 
-                <TextBlock Margin="20" TextWrapping="Wrap" Text="Sidebar" />
+                <TextBlock Margin="5" TextWrapping="Wrap" Text="Sidebar" />
+                <Button Content="Trainings" Style="{StaticResource Button.Sidebar}" />
+                <Button Content="Profile" Style="{StaticResource Button.Sidebar}" />
+                <Button Content="Exercises" Style="{StaticResource Button.Sidebar}" />
+                <Button Content="Statistics" Style="{StaticResource Button.Sidebar}" />
+                <Button Content="Groups" Style="{StaticResource Button.Sidebar}" />
             </StackPanel>
         </Controls:HamburgerMenu.LeftPane>
 
