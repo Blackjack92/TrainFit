@@ -19,6 +19,14 @@
     <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
     <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
     
+    <!-- Images -->
+    <BitmapImage x:Key="BaseImage.Exercises" UriSource="../Images/Weather-overcast.png" />
+    <BitmapImage x:Key="BaseImage.Profile" UriSource="../Images/Weather-rain.png" />
+    <BitmapImage x:Key="BaseImage.Trainings" UriSource="../Images/Weather-snow.png" />
+    <BitmapImage x:Key="BaseImage.Register" UriSource="../Images/Weather-sun.png" />
+    <BitmapImage x:Key="BaseImage.Groups" UriSource="../Images/Weather-thunder.png" />
+    <BitmapImage x:Key="BaseImage.Statistics" UriSource="../Images/Weather-overcast.png" />
+
     <!--TODO: Add default font sizes -->
     
     <!-- Default styles -->
@@ -208,28 +216,28 @@
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Sidebar">
                     <StackPanel Background="{StaticResource BaseTheme.Gray}">
-                        <Grid>
-                            <Image Source="../Images/Weather-overcast.png" />
-                            <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
-                        </Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                            <Image Source="../Images/Weather-rain.png" />
+                            <Image Source="{StaticResource BaseImage.Trainings}" />
+                            <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <Image Source="{StaticResource BaseImage.Profile}" />
                             <Button x:Name="btnProfile" Content="Profile" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Images/Weather-snow.png" />
+                            <Image Source="{StaticResource BaseImage.Exercises}" />
                             <Button x:Name="btnExercises" Content="Exercises" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Images/Weather-sun.png" />
+                            <Image Source="{StaticResource BaseImage.Statistics}" />
                             <Button x:Name="btnStatistics" Content="Statistics" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Images/Weather-thunder.png" />
+                            <Image Source="{StaticResource BaseImage.Groups}" />
                             <Button x:Name="btnGroups" Content="Groups" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../Images/Weather-overcast.png" />
+                            <Image Source="{StaticResource BaseImage.Register}" />
                             <Button x:Name="btnRegister" Content="Register" Style="{StaticResource Button.Sidebar}" />
                         </StackPanel>
                     </StackPanel>
