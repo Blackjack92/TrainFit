@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TrainFit.Utils;
 
 namespace TrainFit.ViewModels
 {
@@ -29,7 +30,7 @@ namespace TrainFit.ViewModels
 
         private void ChangeToRegisterPage()
         {
-            NavigationService.Navigate("Register", null);
+            NavigationService.Navigate(Navigate.Register.PageName(), null);
         }
     }
 }

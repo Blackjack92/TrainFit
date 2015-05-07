@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TrainFit.Utils;
 
 namespace TrainFit.ViewModels
 {
@@ -76,7 +77,7 @@ namespace TrainFit.ViewModels
             EmailAddress = random.Next(300, 399).ToString();
             Password = random.Next(400, 500).ToString();
 
-            NavigationService.Navigate("Main", null);
+            NavigationService.Navigate(Navigate.Main.PageName(), null);
         }
         #endregion
     }

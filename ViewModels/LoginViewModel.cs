@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TrainFit.Utils;
 
 namespace TrainFit.ViewModels
 {
@@ -43,8 +44,7 @@ namespace TrainFit.ViewModels
         {
             var random = new Random();
             Text = random.Next(1000, 10000).ToString();
-
-            navigationService.Navigate("Main", null);
+            navigationService.Navigate(Navigate.Main.PageName(), null);
         }
         #endregion
     }
