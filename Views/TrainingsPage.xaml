@@ -51,6 +51,7 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
+                                <!-- TODO: Add own control, which contains a textblock and a label -->
                                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
                                     <TextBlock Text="Name:" />
                                     <TextBlock Text="{Binding Name}" />
