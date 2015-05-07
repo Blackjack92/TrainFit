@@ -200,9 +200,26 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="HorizontalAlignment" Value="Stretch" /> 
     </Style>
-    
+
+    <Style x:Key="Sidebar.Base" TargetType="controls:Sidebar">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Sidebar">
+                    <StackPanel Background="{StaticResource BaseTheme.Gray}">
+                        <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
+                        <Button x:Name="btnProfile" Content="Profile" Style="{StaticResource Button.Sidebar}" />
+                        <Button x:Name="btnExercises" Content="Exercises" Style="{StaticResource Button.Sidebar}" />
+                        <Button x:Name="btnStatistics" Content="Statistics" Style="{StaticResource Button.Sidebar}" />
+                        <Button x:Name="btnGroups" Content="Groups" Style="{StaticResource Button.Sidebar}" />
+                        <Button x:Name="btnRegister" Content="Register" Style="{StaticResource Button.Sidebar}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!-- Set default styles -->
     <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}" />
     <Style TargetType="Button" BasedOn="{StaticResource Button.Base}" />
     <Style TargetType="controls:HamburgerMenu" BasedOn="{StaticResource HamburgerMenu.Base}" />
+    <Style TargetType="controls:Sidebar" BasedOn="{StaticResource Sidebar.Base}" />
 </ResourceDictionary>

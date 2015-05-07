@@ -10,11 +10,13 @@ using System.Windows.Input;
 
 namespace TrainFit.ViewModels
 {
-    public class RegisterViewModel : ViewModel
+    public class RegisterViewModel : ExtendedViewModel
     {
         #region fields
-        private string firstname, lastname, emailaddress, password;
-        private INavigationService navigationService;
+        private string firstname;
+        private string lastname;
+        private string emailaddress;
+        private string password;
         #endregion
 
         #region properties
@@ -60,7 +62,7 @@ namespace TrainFit.ViewModels
         #region ctor
         public RegisterViewModel(INavigationService navigationService)
         {
-            this.navigationService = navigationService;
+            NavigationService = navigationService;
             ChangeTextFieldsCommand = new DelegateCommand(ChangeText);
         }
         #endregion
@@ -74,7 +76,7 @@ namespace TrainFit.ViewModels
             EmailAddress = random.Next(300, 399).ToString();
             Password = random.Next(400, 500).ToString();
 
-            navigationService.Navigate("Main", null);
+            NavigationService.Navigate("Main", null);
         }
         #endregion
     }

@@ -57,6 +57,7 @@ namespace TrainFit
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<RegisterViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TrainingsViewModel>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
 

@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace TrainFit.ViewModels
 {
-    public class TrainingsViewModel : ExtendedViewModel
+    public class ExtendedViewModel : ViewModel
     {
-        #region ctor
-        public TrainingsViewModel(INavigationService navigationService)
-        {
-            NavigationService = navigationService;
-        }
+        #region properties
+        public INavigationService NavigationService { get; protected set; }
         #endregion
     }
 }

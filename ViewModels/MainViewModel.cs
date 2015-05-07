@@ -10,22 +10,18 @@ using System.Windows.Input;
 
 namespace TrainFit.ViewModels
 {
-    public class MainViewModel : ViewModel
+    public class MainViewModel : ExtendedViewModel
     {
-        #region fields
-        private readonly INavigationService navigationService; 
-        #endregion
-
         #region properties
         public ICommand BackCommand { get; private set; }
-        #endregion
         public ICommand RegisterCommand { get; private set; }
+        #endregion
 
         #region ctor
         public MainViewModel(INavigationService navigationService)
         {
             //TODO : Change this it creats a bug
-            this.navigationService = navigationService;
+            NavigationService = navigationService;
             BackCommand = new DelegateCommand(navigationService.GoBack);
             RegisterCommand = new DelegateCommand(ChangeToRegisterPage);
         }
@@ -33,7 +29,7 @@ namespace TrainFit.ViewModels
 
         private void ChangeToRegisterPage()
         {
-            navigationService.Navigate("Register", null);
+            NavigationService.Navigate("Register", null);
         }
     }
 }

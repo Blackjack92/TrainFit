@@ -7,10 +7,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Controls="using:TrainFit.Controls"
+    xmlns:Converters="using:TrainFit.Converters"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
+    <Page.Resources>
+        <Converters:DummyConverter x:Key="converter" />
+    </Page.Resources>
+    
     <Controls:HamburgerMenu x:Name="hamburger" LeftPaneWidth="300">
         <Controls:HamburgerMenu.LeftPane>
             <!-- Define your left pane here -->
@@ -19,13 +24,8 @@
                     <!-- Element you should use in your body to help you open/close the left pane -->
                     <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
                 </StackPanel>
-                
-                <TextBlock Margin="5" TextWrapping="Wrap" Text="Sidebar" />
-                <Button Content="Trainings" Style="{StaticResource Button.Sidebar}" />
-                <Button Content="Profile" Style="{StaticResource Button.Sidebar}" />
-                <Button Content="Exercises" Style="{StaticResource Button.Sidebar}" />
-                <Button Content="Statistics" Style="{StaticResource Button.Sidebar}" />
-                <Button Content="Groups" Style="{StaticResource Button.Sidebar}" />
+
+                <Controls:Sidebar />
             </StackPanel>
         </Controls:HamburgerMenu.LeftPane>
 
