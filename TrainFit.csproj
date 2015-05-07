@@ -86,6 +86,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\HamburgerMenu.cs" />
+    <Compile Include="Controls\ImageButton.cs" />
     <Compile Include="Controls\Sidebar.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="Models\Difficulty.cs" />

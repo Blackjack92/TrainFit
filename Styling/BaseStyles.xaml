@@ -211,11 +211,31 @@
     </Style>
 
     <!-- TODO: write own Imagebutton -->
+    <Style x:Key="ImageButton.Base" TargetType="controls:ImageButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ImageButton">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{TemplateBinding ImageSource}" />
+                        <Button Content="{TemplateBinding Content}" Style="{StaticResource Button.Sidebar}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="Sidebar.Base" TargetType="controls:Sidebar">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Sidebar">
                     <StackPanel Background="{StaticResource BaseTheme.Gray}">
+                        <!--<controls:ImageButton x:Name="btnTrainings" Content="Trainings" ImageSource="{StaticResource BaseImage.Trainings}"/>-->
+                        
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                             <Image Source="{StaticResource BaseImage.Trainings}" />
                             <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
@@ -245,9 +265,11 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <!-- Set default styles -->
     <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}" />
     <Style TargetType="Button" BasedOn="{StaticResource Button.Base}" />
     <Style TargetType="controls:HamburgerMenu" BasedOn="{StaticResource HamburgerMenu.Base}" />
     <Style TargetType="controls:Sidebar" BasedOn="{StaticResource Sidebar.Base}" />
+    <Style TargetType="controls:ImageButton" BasedOn="{StaticResource ImageButton.Base}" />
 </ResourceDictionary>

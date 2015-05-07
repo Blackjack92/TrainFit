@@ -7,14 +7,42 @@ namespace TrainFit.Controls
 {
     public class HamburgerMenu : ContentControl
     {
+        #region fields
         private ContentPresenter LeftPanePresenter { get;set; }
         private Rectangle MainPaneRectangle { get; set; }
+        #endregion
 
+        #region dependency properties
+        public static readonly DependencyProperty LeftPaneProperty = DependencyProperty.Register("LeftPane", typeof(UIElement), typeof(HamburgerMenu), new PropertyMetadata(null));
+        public UIElement LeftPane
+        {
+            get { return (UIElement)GetValue(LeftPaneProperty); }
+            set { SetValue(LeftPaneProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsLeftPaneOpenProperty = DependencyProperty.Register("IsLeftPaneOpen", typeof(bool), typeof(HamburgerMenu), new PropertyMetadata(false, new PropertyChangedCallback(OnIsLeftPaneOpenChanged)));
+        public bool IsLeftPaneOpen
+        {
+            get { return (bool)GetValue(IsLeftPaneOpenProperty); }
+            set { SetValue(IsLeftPaneOpenProperty, value); }
+        }
+
+        public static readonly DependencyProperty LeftPaneWidthProperty = DependencyProperty.Register("LeftPaneWidth", typeof(double), typeof(HamburgerMenu), new PropertyMetadata(300.0, new PropertyChangedCallback(OnLeftPaneWidthChanged)));
+        public double LeftPaneWidth
+        {
+            get { return (double)GetValue(LeftPaneWidthProperty); }
+            set { SetValue(LeftPaneWidthProperty, value); }
+        }
+        #endregion
+
+        #region ctor
         public HamburgerMenu()
         {
             this.DefaultStyleKey = typeof(HamburgerMenu);
         }
+        #endregion
 
+        #region methods
         protected override void OnApplyTemplate()
         {
             // Find the left pane in the control template and store a reference
@@ -42,19 +70,6 @@ namespace TrainFit.Controls
             }
         }
 
-        public static readonly DependencyProperty LeftPaneProperty = DependencyProperty.Register("LeftPane", typeof(UIElement), typeof(HamburgerMenu), new PropertyMetadata(null));
-        public UIElement LeftPane
-        {
-            get { return (UIElement)GetValue(LeftPaneProperty); }
-            set { SetValue(LeftPaneProperty, value); }
-        }
-
-        public static readonly DependencyProperty IsLeftPaneOpenProperty = DependencyProperty.Register("IsLeftPaneOpen", typeof(bool), typeof(HamburgerMenu), new PropertyMetadata(false, new PropertyChangedCallback(OnIsLeftPaneOpenChanged)));
-        public bool IsLeftPaneOpen
-        {
-            get { return (bool)GetValue(IsLeftPaneOpenProperty); }
-            set { SetValue(IsLeftPaneOpenProperty, value); }
-        }
         private static void OnIsLeftPaneOpenChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
             var ctrl = sender as HamburgerMenu;
@@ -71,13 +86,7 @@ namespace TrainFit.Controls
                 }
             }
         }
-
-        public static readonly DependencyProperty LeftPaneWidthProperty = DependencyProperty.Register("LeftPaneWidth", typeof(double), typeof(HamburgerMenu), new PropertyMetadata(300.0, new PropertyChangedCallback(OnLeftPaneWidthChanged)));
-        public double LeftPaneWidth
-        {
-            get { return (double)GetValue(LeftPaneWidthProperty); }
-            set { SetValue(LeftPaneWidthProperty, value); }
-        }
+       
         private static void OnLeftPaneWidthChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
             // Update the starting X position of the left pane if the width is updated
@@ -85,5 +94,6 @@ namespace TrainFit.Controls
             if (ctrl != null && args.NewValue is double)
                 ctrl.SetLeftPanePresenterX();
         }
+        #endregion
     }
 }
