@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TrainFit.Styling"
     xmlns:controls="using:TrainFit.Controls">
-
+    
     <!-- Default colors -->
     <Color x:Key="BaseColor.Yellow">#FCEE21</Color>
     <Color x:Key="BaseColor.DarkGray">#333333</Color>
@@ -18,22 +18,6 @@
     <SolidColorBrush x:Key="BaseTheme.LightGray" Color="{StaticResource BaseColor.LightGray}" />
     <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
     <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
-    
-    <!-- Images dark -->
-    <BitmapImage x:Key="BaseImage.Exercises.Dark" UriSource="../Images/Weather-overcast-dark.png" />
-    <BitmapImage x:Key="BaseImage.Profile.Dark" UriSource="../Images/Weather-rain-dark.png" />
-    <BitmapImage x:Key="BaseImage.Trainings.Dark" UriSource="../Images/Weather-snow-dark.png" />
-    <BitmapImage x:Key="BaseImage.Register.Dark" UriSource="../Images/Weather-sun-dark.png" />
-    <BitmapImage x:Key="BaseImage.Groups.Dark" UriSource="../Images/Weather-thunder-dark.png" />
-    <BitmapImage x:Key="BaseImage.Statistics.Dark" UriSource="../Images/Weather-overcast-dark.png" />
-
-    <!-- Images light -->
-    <BitmapImage x:Key="BaseImage.Exercises.Light" UriSource="../Images/Weather-overcast-light.png" />
-    <BitmapImage x:Key="BaseImage.Profile.Light" UriSource="../Images/Weather-rain-light.png" />
-    <BitmapImage x:Key="BaseImage.Trainings.Light" UriSource="../Images/Weather-snow-light.png" />
-    <BitmapImage x:Key="BaseImage.Register.Light" UriSource="../Images/Weather-sun-light.png" />
-    <BitmapImage x:Key="BaseImage.Groups.Light" UriSource="../Images/Weather-thunder-light.png" />
-    <BitmapImage x:Key="BaseImage.Statistics.Light" UriSource="../Images/Weather-overcast-light.png" />
     
     <!--TODO: Add default font sizes -->
     
@@ -218,12 +202,11 @@
         <Setter Property="Padding" Value="2" />
     </Style>
 
-    <!-- TODO: write own Imagebutton -->
     <Style x:Key="ImageButton.Base" TargetType="controls:ImageButton">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate x:Name="ImageButton" TargetType="controls:ImageButton">
-                    <Grid x:Name="Grid">
+                    <Grid x:Name="Grid" HorizontalAlignment="Stretch">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 <VisualState x:Name="Normal" />
@@ -233,8 +216,8 @@
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.DarkGray}" />
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DisplayedImage" Storyboard.TargetProperty="Source">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding ImageSourcePressed, RelativeSource={RelativeSource TemplatedParent}}" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Icon" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.White}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.White}" />
@@ -245,29 +228,30 @@
                         </VisualStateManager.VisualStateGroups>
                         
                         <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-                        
-                        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Left">
-                            
+
+                        <ContentPresenter x:Name="ContentPresenter" HorizontalAlignment="Stretch" Margin="5">
                             <Grid HorizontalAlignment="Stretch" Background="Transparent">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
+
+                                <ContentControl x:Name="Icon" Template="{TemplateBinding IconTemplate}" Foreground="{TemplateBinding Foreground}" Height="40" VerticalAlignment="Center" />
                                 
-                                <Image x:Name="DisplayedImage" Source="{TemplateBinding ImageSource}" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left"/>
                                 <TextBlock x:Name="Text" Grid.Column="1" Text="{TemplateBinding Content}" 
                                            FontSize="24" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Stretch" 
                                            Foreground="{TemplateBinding Foreground}" 
                                            Margin="0"
-                                           Padding="3"/>
+                                           Padding="3" />
                             </Grid>
                     </ContentPresenter>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.DarkGray}" />
     </Style>
 
     <Style x:Key="Sidebar.Base" TargetType="controls:Sidebar">
@@ -275,38 +259,29 @@
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Sidebar">
                     <StackPanel Background="{StaticResource BaseTheme.Gray}">
-                        <controls:ImageButton x:Name="btnTrainings" Content="Trainings" ImageSource="{StaticResource BaseImage.Trainings.Dark}" ImageSourcePressed="{StaticResource BaseImage.Trainings.Light}"/>
-                        
-                        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                            <Image Source="{StaticResource BaseImage.Trainings}" />
-                            <Button x:Name="btnTrainings" Content="Trainings" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>-->
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                            <Image Source="{StaticResource BaseImage.Profile.Dark}" />
-                            <Button x:Name="btnProfile" Content="Profile" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Exercises.Dark}" />
-                            <Button x:Name="btnExercises" Content="Exercises" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Statistics.Dark}" />
-                            <Button x:Name="btnStatistics" Content="Statistics" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Groups.Dark}" />
-                            <Button x:Name="btnGroups" Content="Groups" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource BaseImage.Register.Dark}" />
-                            <Button x:Name="btnRegister" Content="Register" Style="{StaticResource Button.Sidebar}" />
-                        </StackPanel>
+                        <controls:ImageButton x:Name="btnTrainings" Content="Trainings" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnProfile" Content="Profile" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnExercises" Content="Exercises" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnStatistics" Content="Statistics" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnGroups" Content="Groups" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnRegister" Content="Register" IconTemplate="{StaticResource Icon.Test}" />
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
     
+    <!-- Icons -->
+    <ControlTemplate x:Key="Icon.Test">
+        <StackPanel>
+            <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                <Canvas Width="16" Height="16">
+                    <Path Data="F1M0,9L16,9L16,7L0,7z" Fill="{TemplateBinding Foreground}"/>
+                </Canvas>
+            </Viewbox>
+        </StackPanel>
+    </ControlTemplate>
+
     <!-- Set default styles -->
     <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}" />
     <Style TargetType="Button" BasedOn="{StaticResource Button.Base}" />

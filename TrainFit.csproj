@@ -125,16 +125,6 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Images\Logo-dark.jpg" />
     <Content Include="Images\Logo-light.jpg" />
-    <Content Include="Images\Weather-overcast-dark.png" />
-    <Content Include="Images\Weather-overcast-light.png" />
-    <Content Include="Images\Weather-rain-dark.png" />
-    <Content Include="Images\Weather-rain-light.png" />
-    <Content Include="Images\Weather-snow-dark.png" />
-    <Content Include="Images\Weather-snow-light.png" />
-    <Content Include="Images\Weather-sun-dark.png" />
-    <Content Include="Images\Weather-sun-light.png" />
-    <Content Include="Images\Weather-thunder-dark.png" />
-    <Content Include="Images\Weather-thunder-light.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
