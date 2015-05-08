@@ -10,6 +10,7 @@ namespace TrainFit.Models
     {
         Hard,
         Normal,
-        Easy
+        Easy,
+        SuperEasy
     }
 }
