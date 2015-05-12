@@ -15,7 +15,7 @@ namespace TrainFit.Test.Models
         public void UserSetName()
         {
             User user = new User();
-            Assert.AreEqual("", user.Name);
+            Assert.AreEqual(null, user.Name);
 
             string name = "Hans";
             user.SetName(name);
