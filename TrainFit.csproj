@@ -97,7 +97,9 @@
     <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="Models\Difficulty.cs" />
     <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\IIdentifiable.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />
     <Compile Include="Utils\Navigate.cs" />
