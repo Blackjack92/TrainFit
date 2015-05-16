@@ -1,11 +1,14 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Unity;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using TrainFit.Models;
+using TrainFit.Services;
 using TrainFit.ViewModels;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -26,6 +29,15 @@ namespace TrainFit
     {
         #region fields
         private UnityContainer container;
+        private IDatabaseService databaseService;
+        #endregion
+
+        #region ctor
+        public App() : base()
+        {
+            databaseService = new DatabaseService();
+            databaseService.CreateTable<Exercise>();
+        }
         #endregion
 
         #region methods
@@ -54,6 +66,8 @@ namespace TrainFit
             // Initialize IOC stuff
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
+            container.RegisterInstance(databaseService);
+
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<RegisterViewModel>(new ContainerControlledLifetimeManager());

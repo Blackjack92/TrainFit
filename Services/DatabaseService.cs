@@ -1,6 +1,9 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,53 +12,123 @@ using Windows.Storage;
 
 namespace TrainFit.Services
 {
-    public class DatabaseService
+    public class DatabaseService : IDatabaseService
     {
         #region fields
-        private readonly string database = "TrainFit.db";
+        public static string DB_NAME = "TrainFit.sqlite";
+        public static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, DB_NAME));        
         #endregion
 
         #region methods
-        // TODO: test this database stuff and make it generic if possible!
-        public void ConnectToDatabase()
+        public bool CreateTable<T>()
         {
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection(database);
-            connection.CreateTableAsync<Exercise>();
-        }
-
-        public async void DropDatabase()
-        {
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection(database);
-            await connection.DropTableAsync<Exercise>();
-        }
-
-        public async Task<int> InsertExerciseIntoDatabase(Exercise exercise)
-        {
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection(database);
-            return await connection.InsertAsync(exercise);
-        }
-
-        public async Task<bool> DoesDatabaseExist(string DatabaseName)
-        {
-            bool dbexist = true;
             try
             {
-                StorageFile storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(DatabaseName);
+                if (!FileExists(DB_NAME).Result)
+                {
+                    using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+                    {
+                        connection.CreateTable<T>();
+                    }
+                }
+                return true;
             }
             catch
             {
-                dbexist = false;
+                return false;
+            } 
+        }
+
+        public void DropTable<T>()
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+            {
+                connection.DropTable<T>();
+            }
+        }
+
+        public void InsertIntoDatabase<T>(T element) where T : ModelBase
+        {
+            if (element == null || element.IsStored) return;
+
+            using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+            {
+                connection.RunInTransaction(() => connection.Insert(element));
             }
 
-            return dbexist;
+            element.IsStored = true;
         }
 
-        public Task<Exercise> ReadExerciseFromDatabaseByName(string name)
+        public void DeleteFromDatabase<T>(T element) where T : ModelBase
         {
-            SQLiteAsyncConnection connection = new SQLiteAsyncConnection(database);
-            var queryVar = connection.Table<Exercise>().Where(x => x.Name.StartsWith(name));
-            return queryVar.FirstOrDefaultAsync();
+            if (element == null || !element.IsStored) return;
+
+            using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+            {
+                connection.RunInTransaction(() => connection.Delete(element));
+            }
         }
+
+        public void UpdateInDatabase<T>(T element) where T : ModelBase
+        {
+            if (element == null || !element.IsStored || element.IsUpdated) return;
+
+            using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+            {
+                connection.RunInTransaction(() => connection.Update(element));
+            }
+
+            element.IsUpdated = true;
+        }
+
+        public void InsertAllIntoDatabase<T>(IEnumerable<T> elements) where T : ModelBase
+        {
+            if (elements == null || !elements.Any(element => !element.IsStored)) return;
+
+            using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+            {
+                connection.RunInTransaction(() => connection.InsertAll(elements.Where(element => !element.IsStored)));
+            }
+        }
+
+        public T ReadFromDatabaseById<T>(int id) where T : ModelBase, new()
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(DB_PATH))
+            {
+                var queryVar = connection.Table<T>().Where(x => x.Id == id);
+                var element = queryVar.FirstOrDefault();
+                if (element != null) { element.IsStored = true; }
+                return element;
+            }
+        }
+
+        public ObservableCollection<T> ReadListFromDatabase<T>() where T : ModelBase, new()
+        {
+            using (var connection = new SQLiteConnection(DB_PATH))
+            {
+                List<T> elements = connection.Table<T>().ToList<T>();
+                foreach (var element in elements)
+	            {
+		            element.IsStored = true;
+	            }
+                return new ObservableCollection<T>(elements);
+            }
+        } 
+        #endregion
+
+        #region helper methods
+        private async Task<bool> FileExists(string fileName)
+        {
+            try
+            {
+                var store = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(fileName);
+                return true;
+            }
+            catch (FileNotFoundException)
+            {
+                return false;
+            }
+        } 
         #endregion
     }
 }

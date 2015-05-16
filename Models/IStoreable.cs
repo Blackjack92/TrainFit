@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace TrainFit.Models
 {
-    public interface IIdentifiable
+    public interface IStoreable
     {
         #region properties
-        int Id { get; set; }
+        bool IsStored { get; set; }
+
+        bool IsUpdated { get; set; }
         #endregion
     }
 }

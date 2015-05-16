@@ -28,6 +28,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid Background="{StaticResource BaseTheme.Menubar}">
@@ -66,6 +67,13 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Button Content="Add" Command="{Binding AddExerciseCommand}"/>
+                <Button Content="Remove" Command="{Binding RemoveExerciseCommand}"/>
+                <Button Content="Store" Command="{Binding StoreInDatabaseCommand}"/>
+                <Button Content="Load" Command="{Binding LoadFromDatabaseCommand}"/>
+            </StackPanel>
         </Grid>
     </Controls:HamburgerMenu>
 </Page>
