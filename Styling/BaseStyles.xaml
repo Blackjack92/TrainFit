@@ -265,6 +265,7 @@
                         <controls:ImageButton x:Name="btnStatistics" Content="Statistics" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnGroups" Content="Groups" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnRegister" Content="Register" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnMap" Content="Map" IconTemplate="{StaticResource Icon.Test}" />
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
