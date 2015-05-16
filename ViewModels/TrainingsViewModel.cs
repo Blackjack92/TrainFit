@@ -16,6 +16,7 @@ namespace TrainFit.ViewModels
     public class TrainingsViewModel : ExtendedViewModel
     {
         #region fields
+        // TODO: implement an ObservableDatabaseCollection, this collection should automatically add, remove, update 
         private ObservableCollection<Exercise> exercises;
         private readonly IDatabaseService databaseService;
         #endregion
