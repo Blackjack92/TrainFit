@@ -10,6 +10,7 @@ namespace TrainFit.Services
 {
     public interface IDatabaseService
     {
+        #region methods
         bool CreateTable<T>();
         void DropTable<T>();
 
@@ -22,5 +23,6 @@ namespace TrainFit.Services
         // Read elements
         T ReadFromDatabaseById<T>(int id) where T : ModelBase, new();
         ObservableCollection<T> ReadListFromDatabase<T>() where T : ModelBase, new();
+        #endregion
     }
 }

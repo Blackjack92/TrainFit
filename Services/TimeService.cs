@@ -42,6 +42,24 @@ namespace TrainFit.Services
             timer.Tick += OnTimerTick;
             PropertyChanged += OnPropertyChanged;
         }
+        #endregion
+
+        #region methods
+        public void AddEventHandler(EventHandler<object> handler)
+        {
+            if (timer != null) 
+            {
+                timer.Tick += handler;
+            }
+        }
+
+        public void RemoveEventHandler(EventHandler<object> handler)
+        {
+            if (timer != null)
+            {
+                timer.Tick -= handler;
+            }
+        }
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -60,7 +78,6 @@ namespace TrainFit.Services
 
         private void OnTimerTick(object sender, object e)
         {
-            // TODO: Handle timer tick e.g. with a callback
             CurrentTime += timer.Interval;
         }
         #endregion
