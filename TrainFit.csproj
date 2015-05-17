@@ -102,6 +102,7 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\GPSService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />
