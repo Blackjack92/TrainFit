@@ -104,9 +104,12 @@
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\GPSService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
+    <Compile Include="Services\ITimerService.cs" />
+    <Compile Include="Services\TimeService.cs" />
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />
     <Compile Include="Utils\Navigate.cs" />
+    <Compile Include="Utils\StaticReflection.cs" />
     <Compile Include="ViewModels\ExtendedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
