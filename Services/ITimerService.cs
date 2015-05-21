@@ -15,8 +15,8 @@ namespace TrainFit.Services
         #endregion
 
         #region methods
-        public void AddEventHandler(EventHandler<object> handler);
-        public void RemoveEventHandler(EventHandler<object> handler);
+        void AddEventHandler(EventHandler<object> handler);
+        void RemoveEventHandler(EventHandler<object> handler);
         #endregion
     }
 }
