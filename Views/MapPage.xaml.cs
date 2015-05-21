@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -22,6 +23,21 @@ namespace TrainFit.Views
         public MapPage()
         {
             this.InitializeComponent();
+
+            Map.MapHolding += OnMapHolding;
+        }
+
+        void OnMapHolding(MapControl sender, MapInputEventArgs args)
+        {
+            // Get point were a landmark should be put
+
+            // Show context menu
+            FrameworkElement contextElement = spContextMenu as FrameworkElement;
+            if (contextElement != null)
+            {
+                FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(contextElement);
+                flyoutBase.ShowAt(contextElement);
+            }
         }
         #endregion
 

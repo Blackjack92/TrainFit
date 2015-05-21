@@ -12,6 +12,21 @@
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
     <Grid>
-        <Maps:MapControl MapServiceToken="token" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Maps:MapControl x:Name="Map" MapServiceToken="token" LandmarksVisible="True" />
+
+        <StackPanel x:Name="spContextMenu" Grid.Row="1">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Delete" />
+                    <MenuFlyoutItem Text="Refresh" />
+                    <MenuFlyoutItem Text="Share" />
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </StackPanel>
     </Grid>
 </Page>
