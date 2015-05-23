@@ -28,9 +28,8 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock x:Uid="tbTrainFit" Grid.Row="0" Grid.ColumnSpan="2" Style="{ThemeResource HeaderTextBlockStyle}" Text="t_TrainFit"/>
-        <TextBlock x:Uid="tbFirstName" Grid.Row="1" Grid.Column="0" Text="FirstName:" Style="{StaticResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
+        <TextBlock x:Uid="tbFirstName" Grid.Row="1" Grid.Column="0" Text="t_FirstName:" Style="{StaticResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding FirstName}" Margin="20" />
-
 
         <TextBlock x:Uid="tbLastName" Grid.Row="2" Grid.Column="0" Text="LastName:" Style="{ThemeResource TextBlock.Base}" VerticalAlignment="Center" Margin="10,10"/>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding LastName}" Margin="20" />

@@ -118,18 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnBack.Content" xml:space="preserve">
-    <value>Back</value>
+    <value>Zurück</value>
   </data>
   <data name="btnLogin.Content" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="tbFirstName.Text" xml:space="preserve">
+    <value>Vorname:</value>
+  </data>
   <data name="tbPassword.Text" xml:space="preserve">
-    <value>Password:</value>
+    <value>Passwort:</value>
   </data>
   <data name="tbTrainFit.Text" xml:space="preserve">
     <value>TrainFit</value>
   </data>
   <data name="tbUser.Text" xml:space="preserve">
-    <value>User:</value>
+    <value>Benutzer:</value>
   </data>
 </root>
