@@ -19,7 +19,7 @@
     <Controls:HamburgerMenu x:Name="hamburger" LeftPaneWidth="300">
         <Controls:HamburgerMenu.LeftPane>
             <!-- Define your left pane here -->
-            <StackPanel Background="{StaticResource BaseTheme.Gray}">
+            <StackPanel Background="{StaticResource BaseTheme.LightWhite}">
                 <StackPanel Background="{StaticResource BaseTheme.Menubar}">
                     <!-- Element you should use in your body to help you open/close the left pane -->
                     <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
@@ -29,14 +29,14 @@
             </StackPanel>
         </Controls:HamburgerMenu.LeftPane>
 
-        <Grid Background="{StaticResource BaseTheme.Gray}">
+        <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid Background="{StaticResource BaseTheme.Menubar}">
@@ -47,11 +47,11 @@
                 
                 <!-- Element you should use in your body to help you open/close the left pane -->
                 <ToggleButton Grid.Column="0" IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
-                <Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />
+                <!--<Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />-->
             </Grid>
 
-            <Button x:Uid="btnBack" Grid.Row="1" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Top" BorderThickness="0"/>
-            <Button x:Uid="btnRegisterNow" Grid.Row="2" Content="t_Register" Command="{Binding RegisterCommand}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Uid="btnBack" Grid.Row="1" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"/>
+            <Button x:Uid="btnRegisterNow" Grid.Row="2" Content="t_Register" Command="{Binding RegisterCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
     </Controls:HamburgerMenu>
 </Page>

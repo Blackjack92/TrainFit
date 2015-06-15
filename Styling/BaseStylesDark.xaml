@@ -10,8 +10,8 @@
 
     <!-- Menubar -->
     <LinearGradientBrush x:Key="BaseTheme.Menubar" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Color="{StaticResource BaseColor.Gray}" />
-        <GradientStop Color="{StaticResource BaseColor.Black}" Offset="0.75"/>
+        <GradientStop Color="{StaticResource BaseColor.Blue}" />
+        <GradientStop Color="{StaticResource BaseColor.LightWhite}" Offset="0.75"/>
     </LinearGradientBrush>
 
     <!-- Images -->

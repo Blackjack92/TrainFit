@@ -5,25 +5,34 @@
     xmlns:controls="using:TrainFit.Controls">
     
     <!-- Default colors -->
-    <Color x:Key="BaseColor.Yellow">#FCEE21</Color>
-    <Color x:Key="BaseColor.DarkGray">#333333</Color>
-    <Color x:Key="BaseColor.LightGray">#CCCCCC</Color>
-    <Color x:Key="BaseColor.Gray">#BEBEBE</Color>
     <Color x:Key="BaseColor.White">#FFFFFF</Color>
     <Color x:Key="BaseColor.Black">#000000</Color>
-    
+    <Color x:Key="BaseColor.Gray">#BEBEBE</Color>
+    <Color x:Key="BaseColor.Blue">#2980B9</Color>
+
+    <Color x:Key="BaseColor.LightBlue">#3498DB</Color>
+    <Color x:Key="BaseColor.LightRed">#E74C3C</Color>
+    <Color x:Key="BaseColor.LightWhite">#ECF0F1</Color>
+
+    <Color x:Key="BaseColor.DarkBlue">#2C3E50</Color>
+
     <!-- Default color brushes -->
-    <SolidColorBrush x:Key="BaseTheme.Yellow" Color="{StaticResource BaseColor.Yellow}" />
-    <SolidColorBrush x:Key="BaseTheme.DarkGray" Color="{StaticResource BaseColor.DarkGray}" />
-    <SolidColorBrush x:Key="BaseTheme.LightGray" Color="{StaticResource BaseColor.LightGray}" />
-    <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
     <SolidColorBrush x:Key="BaseTheme.White" Color="{StaticResource BaseColor.White}" />
+    <SolidColorBrush x:Key="BaseTheme.Black" Color="{StaticResource BaseColor.Black}" />
+    <SolidColorBrush x:Key="BaseTheme.Gray" Color="{StaticResource BaseColor.Gray}" />
+    <SolidColorBrush x:Key="BaseTheme.Blue" Color="{StaticResource BaseColor.Blue}" />
+    
+    <SolidColorBrush x:Key="BaseTheme.LightBlue" Color="{StaticResource BaseColor.LightBlue}" />
+    <SolidColorBrush x:Key="BaseTheme.LightRed" Color="{StaticResource BaseColor.LightRed}" />
+    <SolidColorBrush x:Key="BaseTheme.LightWhite" Color="{StaticResource BaseColor.LightWhite}" />
+
+    <SolidColorBrush x:Key="BaseTheme.DarkBlue" Color="{StaticResource BaseColor.DarkBlue}" />
     
     <!--TODO: Add default font sizes -->
     
     <!-- Default styles -->
     <Style x:Key="TextBlock.Base" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkGray}" />
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkBlue}" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -34,13 +43,13 @@
     </Style>
 
     <Style x:Key="Button.Base" TargetType="Button">
-        <Setter Property="Foreground" Value="{StaticResource BaseColor.Black}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BaseColor.DarkGray}" />
-        <Setter Property="Background" Value="{StaticResource BaseColor.LightGray}" />
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkBlue}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BaseColor.DarkBlue}" />
+        <Setter Property="Background" Value="{StaticResource BaseColor.LightBlue}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="1" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -56,7 +65,7 @@
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.White}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.DarkGray}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.DarkBlue}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -92,15 +101,16 @@
                                 </VisualStateGroup.Transitions>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        
-                        <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
-                        <ContentPresenter x:Name="ContentPresenter" 
+
+                        <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                        <ContentPresenter x:Name="ContentPresenter"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           Margin="{TemplateBinding Padding}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                           FontStyle="{TemplateBinding FontStyle}"
                                           FontStretch="{TemplateBinding FontStretch}"
-                                          FontWeight="{TemplateBinding FontWeight}"/>
+                                          FontWeight="{TemplateBinding FontWeight}"
+                                          />
                     </Grid>
                     
                 </ControlTemplate>
@@ -184,12 +194,12 @@
 
     <!-- Explizit styles -->
     <Style x:Key="HamburgerToggleButton.Menubar" TargetType="ToggleButton" BasedOn="{StaticResource HamburgerToggleButton.Base}">
-        <Setter Property="Foreground" Value="{StaticResource BaseColor.Yellow}" />
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.LightRed}" />
         <Setter Property="Background" Value="Transparent" />
     </Style>
     
     <Style x:Key="Button.Sidebar" TargetType="Button" BasedOn="{StaticResource Button.Base}">
-        <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkGray}" />
+        <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkBlue}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
@@ -214,13 +224,13 @@
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.DarkGray}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.DarkBlue}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Icon" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.White}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.LightWhite}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Text" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.White}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseColor.LightWhite}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -251,14 +261,14 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Foreground" Value="{StaticResource BaseTheme.DarkGray}" />
+        <Setter Property="Foreground" Value="{StaticResource BaseTheme.DarkBlue}" />
     </Style>
 
     <Style x:Key="Sidebar.Base" TargetType="controls:Sidebar">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Sidebar">
-                    <StackPanel Background="{StaticResource BaseTheme.Gray}">
+                    <StackPanel Background="{StaticResource BaseTheme.LightWhite}">
                         <controls:ImageButton x:Name="btnTrainings" Content="Trainings" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnProfile" Content="Profile" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnExercises" Content="Exercises" IconTemplate="{StaticResource Icon.Test}" />
