@@ -17,6 +17,7 @@ namespace TrainFit.Controls
         private readonly string btnTrainings = "btnTrainings";
         private readonly string btnRegister = "btnRegister";
         private readonly string btnMap = "btnMap";
+        private readonly string btnExercise = "btnExercise";
 
         private List<Button> buttons;
         #endregion
@@ -35,6 +36,7 @@ namespace TrainFit.Controls
             buttons.Add(GetTemplateChild(btnTrainings) as Button);
             buttons.Add(GetTemplateChild(btnRegister) as Button);
             buttons.Add(GetTemplateChild(btnMap) as Button);
+            buttons.Add(GetTemplateChild(btnExercise) as Button);
 
             foreach (var button in buttons)
             {

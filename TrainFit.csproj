@@ -110,12 +110,16 @@
     <Compile Include="SQLite\SQLiteAsync.cs" />
     <Compile Include="Utils\Navigate.cs" />
     <Compile Include="Utils\StaticReflection.cs" />
+    <Compile Include="ViewModels\ExerciseViewModel.cs" />
     <Compile Include="ViewModels\ExtendedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TrainingsViewModel.cs" />
+    <Compile Include="Views\ExercisePage.xaml.cs">
+      <DependentUpon>ExercisePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -164,6 +168,10 @@
     <Page Include="Styling\BaseStylesLight.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ExercisePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>

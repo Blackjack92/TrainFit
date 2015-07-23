@@ -1876,7 +1876,18 @@ namespace SQLite
 					return "varchar(" + len.Value + ")";
 
 				return "varchar";
-			} else if (clrType == typeof(TimeSpan)) {
+            }
+            else if (clrType == typeof(Uri))
+            {
+                int? len = p.MaxStringLength;
+
+                if (len.HasValue)
+                    return "varchar(" + len.Value + ")";
+
+                return "varchar";
+            }
+            
+            else if (clrType == typeof(TimeSpan)) {
                 return "bigint";
 			} else if (clrType == typeof(DateTime)) {
 				return storeDateTimeAsTicks ? "bigint" : "datetime";
