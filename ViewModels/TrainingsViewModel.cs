@@ -53,6 +53,7 @@ namespace TrainFit.ViewModels
             var exercise = new Exercise();
             exercise.Difficulty = Difficulty.Easy;
             exercise.Name = "Einfache Übung";
+            exercise.Url = new Uri("C://");
             exercises.Add(exercise);
         }
 
