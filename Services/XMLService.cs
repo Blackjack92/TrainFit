@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Windows.Storage;
 
@@ -7,30 +8,31 @@ namespace TrainFit.Services
 {
     public class XmlService
     {
-        public static void WriteObjectToXmlFile<T>(T obj, string filename)
+        public static async Task<T> ReadObjectFromXmlFileAsync<T>(string filename)
         {
-            // Get the local folder.
-            StorageFolder local = Windows.Storage.ApplicationData.Current.LocalFolder;
+            // this reads XML content from a file ("filename") and returns an object  from the XML
+            T objectFromXml = default(T);
+            var serializer = new XmlSerializer(typeof(T));
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await folder.GetFileAsync(filename);
+            Stream stream = await file.OpenStreamForReadAsync();
+            objectFromXml = (T)serializer.Deserialize(stream);
+            stream.Dispose();
+            return objectFromXml;
+        }
 
-            // Create a new folder name DataFolder.
-            var dataFolder = local.CreateFolderAsync("DataFolder", CreationCollisionOption.OpenIfExists);
+        public static async Task SaveObjectToXml<T>(T objectToSave, string filename)
+        {
+            // stores an object in XML format in file called 'filename'
+            var serializer = new XmlSerializer(typeof(T));
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            StorageFile file = await folder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+            Stream stream = await file.OpenStreamForWriteAsync();
 
-            // Create a new file named DataFile.txt.
-            var file = dataFolder.CreateFileAsync("DataFile.txt", CreationCollisionOption.ReplaceExisting);
-
-            // Write the data from the textbox.
-            using (var s = file.OpenStreamForWriteAsync())
+            using (stream)
             {
-                s.Write(fileBytes, 0, fileBytes.Length);
+                serializer.Serialize(stream, objectToSave);
             }
-
-
-            using (StreamWriter writer = File.CreateText(filename))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(T));
-                serializer.Serialize(writer, obj);
-            }
-           
         }
     }
 }
