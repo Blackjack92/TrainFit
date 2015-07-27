@@ -106,6 +106,7 @@
     <Compile Include="Services\IDatabaseService.cs" />
     <Compile Include="Services\ITimerService.cs" />
     <Compile Include="Services\TimeService.cs" />
+    <Compile Include="Services\XmlService.cs" />
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />
     <Compile Include="Utils\Navigate.cs" />
