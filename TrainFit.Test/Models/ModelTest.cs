@@ -13,6 +13,8 @@ namespace TrainFit.Test.Models
     [TestClass]
     public class ModelTest
     {
+        private static string defaultUriString = "C://";
+
         [TestMethod]
         public void UserSetName()
         {
@@ -24,6 +26,24 @@ namespace TrainFit.Test.Models
             Assert.AreEqual(name, user.Name);
         }
 
+        [TestMethod]
+        public async Task XmlServiceWriteAndReadExercise()
+        {
+            var expectedExercise = new Exercise()
+            {
+                Id = 1,
+                Name = "exercise1",
+                Description = "description",
+                Difficulty = Difficulty.Hard,
+                ImageSource = new Uri(defaultUriString),
+                Url = new Uri(defaultUriString)
+            };
+
+            await XmlService.SaveObjectToXml(expectedExercise, "exerciseTest.xml");
+            var actualExercise = await XmlService.ReadObjectFromXmlFileAsync<Exercise>("exerciseTest.xml");
+
+
+        }
 
 
         [TestMethod]
