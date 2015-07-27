@@ -2204,7 +2204,13 @@ namespace SQLite
                     SQLite3.BindBlob(stmt, index, (byte[]) value, ((byte[]) value).Length, NegativePointer);
                 } else if (value is Guid) {
                     SQLite3.BindText(stmt, index, ((Guid)value).ToString(), 72, NegativePointer);
-                } else {
+                }
+                else if (value is Uri)
+                {
+                    SQLite3.BindText(stmt, index, ((Uri)value).ToString(), -1, NegativePointer);
+
+                }
+                else {
                     throw new NotSupportedException("Cannot store type: " + value.GetType());
                 }
 			}
@@ -2271,7 +2277,14 @@ namespace SQLite
 				} else if (clrType == typeof(Guid)) {
                   var text = SQLite3.ColumnString(stmt, index);
                   return new Guid(text);
-                } else{
+                }
+                else if (clrType == typeof(Uri))
+                {
+                    return new Uri(SQLite3.ColumnString(stmt, index));
+
+                }
+                else
+                {
 					throw new NotSupportedException ("Don't know how to read " + clrType);
 				}
 			}

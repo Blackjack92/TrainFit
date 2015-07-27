@@ -199,3 +199,8 @@ FakesAssemblies/
 # Our Output-folder
 bin/
 obj/
+# files which are problematic because of the different architecture (x86 or arm)
+TrainFit.Test/Models/Package.appxmanifest
+TrainFit.Test/TrainFit.Test.csproj
+TrainFit.csproj
+TrainFit.sln
