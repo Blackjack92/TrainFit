@@ -46,13 +46,13 @@ namespace TrainFit.Test.Models
 
             ObservableCollection<Exercise> exercisesLoadedFirstTime = dbService.ReadListFromDatabase<Exercise>();
 
-            IEnumerable<Exercise> exercisesLoadedFirstTimeWithSpecialName = exercisesLoadedFirstTime.Where(ex => ex.Name.Equals("testName"));
+            IEnumerable<Exercise> exercisesLoadedFirstTimeWithSpecialName = exercisesLoadedFirstTime.Where(ex => ex.Name.Equals(nameString));
 
             Assert.AreEqual(1, exercisesLoadedFirstTimeWithSpecialName.Count());
             var returnedToTestExercise = exercisesLoadedFirstTimeWithSpecialName.First();
             Assert.IsNotNull(returnedToTestExercise);
                 Assert.IsNotNull(returnedToTestExercise.Url);
-                Assert.AreEqual(uriString, returnedToTestExercise.Url.ToString());
+                Assert.AreEqual(uriString, returnedToTestExercise.Url.AbsolutePath);
            
            
 
@@ -62,7 +62,7 @@ namespace TrainFit.Test.Models
 
             ObservableCollection<Exercise> exercisesLoadedSecondTime = dbService.ReadListFromDatabase<Exercise>();
 
-            IEnumerable<Exercise> exercisesLoadedSecondTimeWithSpecialName = exercisesLoadedSecondTime.Where(ex => ex.Name.Equals("testName"));
+            IEnumerable<Exercise> exercisesLoadedSecondTimeWithSpecialName = exercisesLoadedSecondTime.Where(ex => ex.Name.Equals(nameString));
             Assert.AreEqual(0,exercisesLoadedSecondTimeWithSpecialName.Count());
 
            
