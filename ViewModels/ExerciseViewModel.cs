@@ -35,8 +35,8 @@ namespace TrainFit.ViewModels
                 Name = "Test",
                 Description = "Description",
                 Difficulty = Difficulty.Easy,
-                ImageSource = new Uri("https://www.google.at/"),
-                Url = new Uri("https://www.google.at/")
+                ImageSource = "https://www.google.at/",
+                Url = "https://www.google.at/"
             };
         }
         #endregion
