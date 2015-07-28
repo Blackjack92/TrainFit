@@ -7,7 +7,7 @@ using TrainFit.Models;
 
 namespace TrainFit.Comparers
 {
-    public class ExerciseComparer : EqualityComparer<Exercise>
+    public class ExerciseComparer : IEqualityComparer<Exercise>
     {
         #region properties
         private string[] ignoredProperties;
@@ -24,12 +24,12 @@ namespace TrainFit.Comparers
         #endregion
 
         #region methods
-        public override bool Equals(Exercise expectedExercise, Exercise actualExercise)
+        public bool Equals(Exercise expectedExercise, Exercise actualExercise)
         {
             return ComparerHelper.InstancePropertiesAreEqual<Exercise>(expectedExercise, actualExercise);
         }
 
-        public override int GetHashCode(Exercise obj)
+        public int GetHashCode(Exercise obj)
         {
             return obj == null ? 0 : obj.GetHashCode();
         }
