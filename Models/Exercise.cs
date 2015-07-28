@@ -15,18 +15,16 @@ namespace TrainFit.Models
         #region fields
         private string name;
         private Difficulty difficulty;
-        private Uri url;
-        private Uri imageSource;
+        private string url;
+        private string imageSource;
         private string description;
         #endregion
 
         #region properties
         public string Name { get { return name; } set { SetProperty(ref name, value); } }
         public Difficulty Difficulty { get { return difficulty; } set { SetProperty(ref difficulty, value); } }
-        [XmlIgnoreAttribute]
-        public Uri Url { get { return url; } set { SetProperty(ref url, value); } }
-        [XmlIgnoreAttribute]
-        public Uri ImageSource { get { return imageSource; } set { SetProperty(ref imageSource, value); } }
+        public string Url { get { return url; } set { SetProperty(ref url, value); } }
+        public string ImageSource { get { return imageSource; } set { SetProperty(ref imageSource, value); } }
         public string Description { get { return description; } set { SetProperty(ref description, value); } }
         #endregion
 
