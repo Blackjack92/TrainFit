@@ -48,17 +48,37 @@
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="0" Text="{Binding Exercise.Name}" />
-                <TextBlock Grid.Row="1" Text="{Binding Exercise.Difficulty}" />
-                <TextBlock Grid.Row="2" Text="{Binding Exercise.Url}"/>
-                <TextBlock Grid.Row="3" Text="{Binding Exercise.ImageSource}"/>
-                <TextBlock Grid.Row="4" Text="{Binding Exercise.Description}"/>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding Exercise.ImageSource}" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Exercise.Exercise.Name}" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Exercise.Exercise.ExerciseType}" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="{Binding Exercise.Exercise.Difficulty}" />
+                    <TextBlock Grid.Row="1" Text="{Binding Exercise.Exercise.Url}"/>
+                    <TextBlock Grid.Row="2" Text="{Binding Exercise.Exercise.ImageSource}"/>
+                    <TextBlock Grid.Row="3" Text="{Binding Exercise.Exercise.Description}"/>
+                </Grid>
             </Grid>
             
             <Button x:Uid="btnBack" Grid.Row="2" Content="t_Back" Command="{Binding BackCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"/>

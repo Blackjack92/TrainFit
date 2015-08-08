@@ -1,5 +1,5 @@
 ﻿using System;
-using Windows.UI.Xaml;
+using System.IO;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -9,7 +9,7 @@ namespace TrainFit.Services
     {
         public ImageSource GetImageSource(string exerciseName)
         {
-            return new BitmapImage(new Uri(@"Assets/Images/Music.png", UriKind.Relative));
+            return new BitmapImage(new Uri("ms-appx:///Assets/Images/Music.png", UriKind.Absolute));
         }
 
         public bool HasImageSource(string exerciseName)
