@@ -42,6 +42,16 @@
         <Setter Property="FontWeight" Value="Thin" />
     </Style>
 
+    <Style x:Key="TextBlock.SmallHeader" TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}">
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+
+    <Style x:Key="TextBlock.Header" TargetType="TextBlock" BasedOn="{StaticResource TextBlock.Base}">
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    
     <Style x:Key="Button.Base" TargetType="Button">
         <Setter Property="Foreground" Value="{StaticResource BaseColor.DarkBlue}" />
         <Setter Property="BorderBrush" Value="{StaticResource BaseColor.DarkBlue}" />
