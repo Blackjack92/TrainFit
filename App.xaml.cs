@@ -67,6 +67,7 @@ namespace TrainFit
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
             container.RegisterInstance(databaseService);
+            container.RegisterInstance(container);
 
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
@@ -74,6 +75,9 @@ namespace TrainFit
             container.RegisterType<TrainingsViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MapViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ExerciseViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IImageSourceProvider, ImageSourceProvider>("imageSourceProvider", new ContainerControlledLifetimeManager());
+            container.RegisterType<IEnumerable<IImageSourceProvider>, IImageSourceProvider[]>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ImageService>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
 

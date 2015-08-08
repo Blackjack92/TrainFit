@@ -18,6 +18,7 @@ namespace TrainFit.Models
         private string url;
         private string imageSource;
         private string description;
+        private ExerciseType exerciseType;
         #endregion
 
         #region properties
@@ -26,6 +27,7 @@ namespace TrainFit.Models
         public string Url { get { return url; } set { SetProperty(ref url, value); } }
         public string ImageSource { get { return imageSource; } set { SetProperty(ref imageSource, value); } }
         public string Description { get { return description; } set { SetProperty(ref description, value); } }
+        public ExerciseType ExerciseType { get { return exerciseType; } set { SetProperty(ref exerciseType, value); } }
         #endregion
 
         #region ctor
