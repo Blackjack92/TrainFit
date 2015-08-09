@@ -7,7 +7,9 @@ namespace TrainFit.Utils
         Login,
         Main,
         Register,
-        Trainings
+        Trainings,
+        Exercise,
+        Exercises
     }
 
     static class NavigateExtensions

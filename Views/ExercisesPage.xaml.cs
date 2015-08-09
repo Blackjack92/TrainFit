@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 // Die Elementvorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkID=390556 dokumentiert.
@@ -10,11 +11,14 @@ namespace TrainFit.Views
     /// </summary>
     public sealed partial class ExercisesPage : IView
     {
+        #region ctor
         public ExercisesPage()
         {
             this.InitializeComponent();
         }
+        #endregion
 
+        #region methods
         /// <summary>
         /// Wird aufgerufen, wenn diese Seite in einem Frame angezeigt werden soll.
         /// </summary>
@@ -23,5 +27,11 @@ namespace TrainFit.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using TrainFit.DataModels;
 using TrainFit.Models;
 using TrainFit.Services;
+using TrainFit.Utils;
 
 namespace TrainFit.ViewModels
 {
@@ -10,6 +11,7 @@ namespace TrainFit.ViewModels
     {
         #region fields
         private ObservableCollection<ExerciseDataModel> exercises;
+        private ExerciseDataModel selectedExercise;
         #endregion
 
         #region properties
@@ -17,6 +19,19 @@ namespace TrainFit.ViewModels
         {
             get { return exercises; }
             private set { SetProperty(ref exercises, value); }
+        }
+
+        public ExerciseDataModel SelectedExercise
+        {
+            get { return selectedExercise; }
+            set
+            {
+                SetProperty(ref selectedExercise, value);
+                if (selectedExercise != null)
+                {
+                    NavigationService.Navigate(Navigate.Exercise.PageName(), selectedExercise);
+                }
+            }
         }
         #endregion
 
