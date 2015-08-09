@@ -1,5 +1,4 @@
-﻿using System;
-using Windows.UI.Xaml.Media;
+﻿using Windows.UI.Xaml.Media;
 
 namespace TrainFit.Services
 {

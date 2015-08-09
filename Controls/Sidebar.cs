@@ -1,10 +1,4 @@
-﻿using Microsoft.Practices.Prism.Mvvm.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
 using TrainFit.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -14,10 +8,10 @@ namespace TrainFit.Controls
     public class Sidebar : Control
     {
         #region fields
-        private readonly string btnTrainings = "btnTrainings";
-        private readonly string btnRegister = "btnRegister";
-        private readonly string btnMap = "btnMap";
-        private readonly string btnExercise = "btnExercise";
+        private const string btnTrainings = "btnTrainings";
+        private const string btnRegister = "btnRegister";
+        private const string btnMap = "btnMap";
+        private const string btnExercise = "btnExercise";
 
         private List<Button> buttons;
         #endregion
@@ -57,7 +51,6 @@ namespace TrainFit.Controls
             {
                 context.NavigationService.Navigate(navigateTo, null);
             }
-
         }
         #endregion
 

@@ -1,21 +1,15 @@
 ﻿using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TrainFit.Utils;
 
 namespace TrainFit.ViewModels
 {
-    public class LoginViewModel : ViewModel
+    public class LoginViewModel : ExtendedViewModel
     {
         #region fields
         private string text;
-        private INavigationService navigationService;
         #endregion
 
         #region properties
@@ -34,7 +28,7 @@ namespace TrainFit.ViewModels
         #region ctor
         public LoginViewModel(INavigationService navigationService)
         {
-            this.navigationService = navigationService;
+            NavigationService = navigationService;
             ChangeTextCommand = new DelegateCommand(ChangeText);
         }
         #endregion
@@ -44,7 +38,7 @@ namespace TrainFit.ViewModels
         {
             var random = new Random();
             Text = random.Next(1000, 10000).ToString();
-            navigationService.Navigate(Navigate.Main.PageName(), null);
+            NavigationService.Navigate(Navigate.Main.PageName(), null);
         }
         #endregion
     }

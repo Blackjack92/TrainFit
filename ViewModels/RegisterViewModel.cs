@@ -1,11 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Commands;
-using Microsoft.Practices.Prism.Mvvm;
 using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using TrainFit.Utils;
 
@@ -24,37 +19,25 @@ namespace TrainFit.ViewModels
         public string FirstName
         {
             get { return firstname; }
-            set 
-            {
-                SetProperty(ref firstname, value);
-            }
+            set { SetProperty(ref firstname, value); }
         }
 
         public string LastName
         {
             get { return lastname; }
-            set
-            {
-                SetProperty(ref lastname, value);
-            }
+            set { SetProperty(ref lastname, value); }
         }
 
         public string EmailAddress
         {
             get { return emailaddress; }
-            set
-            {
-                SetProperty(ref emailaddress, value);
-            }
+            set { SetProperty(ref emailaddress, value); }
         }
 
         public string Password
         {
             get { return password; }
-            set
-            {
-                SetProperty(ref password, value);
-            }
+            set { SetProperty(ref password, value); }
         }
 
         public ICommand ChangeTextFieldsCommand { get; private set; }
