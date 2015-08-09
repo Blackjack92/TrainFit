@@ -61,6 +61,7 @@ namespace TrainFit
             container.RegisterType<TrainingsViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MapViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ExerciseViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ExercisesViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<IImageSourceProvider, ImageSourceProvider>("imageSourceProvider", new ContainerControlledLifetimeManager());
             container.RegisterType<IEnumerable<IImageSourceProvider>, IImageSourceProvider[]>(new ContainerControlledLifetimeManager());
             container.RegisterType<ImageService>(new ContainerControlledLifetimeManager());

@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Comparers\ComparerHelper.cs" />
     <Compile Include="Comparers\ExerciseComparer.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controls\HamburgerMenu.cs" />
     <Compile Include="Controls\ImageButton.cs" />
     <Compile Include="Controls\LabelTextBlock.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="SQLite\SQLiteAsync.cs" />
     <Compile Include="Utils\Navigate.cs" />
     <Compile Include="Utils\StaticReflection.cs" />
+    <Compile Include="ViewModels\ExercisesViewModel.cs" />
     <Compile Include="ViewModels\ExerciseViewModel.cs" />
     <Compile Include="ViewModels\ExtendedViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -128,6 +130,9 @@
     <Compile Include="ViewModels\TrainingsViewModel.cs" />
     <Compile Include="Views\ExercisePage.xaml.cs">
       <DependentUpon>ExercisePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExercisesPage.xaml.cs">
+      <DependentUpon>ExercisesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -312,6 +317,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ExercisePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExercisesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
