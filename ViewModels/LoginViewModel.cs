@@ -27,8 +27,8 @@ namespace TrainFit.ViewModels
 
         #region ctor
         public LoginViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
-            NavigationService = navigationService;
             ChangeTextCommand = new DelegateCommand(ChangeText);
         }
         #endregion

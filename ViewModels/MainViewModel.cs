@@ -14,9 +14,9 @@ namespace TrainFit.ViewModels
 
         #region ctor
         public MainViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
             //TODO : Change this it creats a bug
-            NavigationService = navigationService;
             BackCommand = new DelegateCommand(navigationService.GoBack);
             RegisterCommand = new DelegateCommand(ChangeToRegisterPage);
         }

@@ -20,9 +20,9 @@ namespace TrainFit.ViewModels
         #endregion
 
         #region ctor
-        public ExerciseViewModel(INavigationService navigationService, ImageService imageService)
+        public ExerciseViewModel(INavigationService navigationService, ImageService imageService) :
+            base(navigationService)
         {
-            NavigationService = navigationService;
             BackCommand = new DelegateCommand(navigationService.GoBack);
 
             var exercise = new Exercise()

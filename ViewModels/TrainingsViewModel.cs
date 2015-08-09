@@ -26,9 +26,9 @@ namespace TrainFit.ViewModels
 
         #region ctor
         public TrainingsViewModel(INavigationService navigationService, IDatabaseService databaseService)
+            : base(navigationService)
         {
             // Services
-            NavigationService = navigationService;
             this.databaseService = databaseService;
 
             // Properties
