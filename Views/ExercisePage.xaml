@@ -73,14 +73,12 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="0" Text="{Binding Exercise.Exercise.Difficulty}" />
-                    <TextBlock Grid.Row="1" Text="{Binding Exercise.Exercise.Url}"/>
-                    <TextBlock Grid.Row="2" Text="{Binding Exercise.Exercise.ImageSource}"/>
-                    <TextBlock Grid.Row="3" Text="{Binding Exercise.Exercise.Description}"/>
+                    <Controls:LabelTextBlock Grid.Row="0" Label="Difficulty: " Text="{Binding Exercise.Exercise.Difficulty}" />
+                    <TextBlock Grid.Row="1" Text="{Binding Exercise.Exercise.Url}" />
+                    <TextBlock Grid.Row="2" Text="{Binding Exercise.Exercise.Description}"/>
                 </Grid>
             </Grid>
             

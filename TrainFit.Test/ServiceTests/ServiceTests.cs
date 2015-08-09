@@ -40,7 +40,6 @@ namespace TrainFit.Test.ServiceTests
                 Description = "description",
                 Difficulty = Difficulty.Hard,
                 Url = defaultUriString,
-                ImageSource = defaultUriString,
                 IsStored = false,
                 IsUpdated = true
             };

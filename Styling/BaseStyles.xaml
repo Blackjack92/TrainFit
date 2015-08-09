@@ -291,6 +291,19 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="LabelTextBlock.Base" TargetType="controls:LabelTextBlock">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:LabelTextBlock">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{TemplateBinding Label}" FontWeight="SemiBold" Style="{StaticResource TextBlock.Base}" />
+                        <TextBlock Text="{TemplateBinding Text}" Style="{StaticResource TextBlock.Base}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>         
+        </Setter>
+    </Style>
     
     <!-- Icons -->
     <ControlTemplate x:Key="Icon.Test">
@@ -309,4 +322,5 @@
     <Style TargetType="controls:HamburgerMenu" BasedOn="{StaticResource HamburgerMenu.Base}" />
     <Style TargetType="controls:Sidebar" BasedOn="{StaticResource Sidebar.Base}" />
     <Style TargetType="controls:ImageButton" BasedOn="{StaticResource ImageButton.Base}" />
+    <Style TargetType="controls:LabelTextBlock" BasedOn="{StaticResource LabelTextBlock.Base}" />
 </ResourceDictionary>

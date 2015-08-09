@@ -95,6 +95,7 @@
     <Compile Include="Comparers\ExerciseComparer.cs" />
     <Compile Include="Controls\HamburgerMenu.cs" />
     <Compile Include="Controls\ImageButton.cs" />
+    <Compile Include="Controls\LabelTextBlock.cs" />
     <Compile Include="Controls\Sidebar.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="DataModels\ExerciseDataModel.cs" />

@@ -16,7 +16,6 @@ namespace TrainFit.Models
         private string name;
         private Difficulty difficulty;
         private string url;
-        private string imageSource;
         private string description;
         private ExerciseType exerciseType;
         #endregion
@@ -25,7 +24,6 @@ namespace TrainFit.Models
         public string Name { get { return name; } set { SetProperty(ref name, value); } }
         public Difficulty Difficulty { get { return difficulty; } set { SetProperty(ref difficulty, value); } }
         public string Url { get { return url; } set { SetProperty(ref url, value); } }
-        public string ImageSource { get { return imageSource; } set { SetProperty(ref imageSource, value); } }
         public string Description { get { return description; } set { SetProperty(ref description, value); } }
         public ExerciseType ExerciseType { get { return exerciseType; } set { SetProperty(ref exerciseType, value); } }
         #endregion
