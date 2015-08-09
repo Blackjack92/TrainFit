@@ -73,12 +73,23 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
                     <Controls:LabelTextBlock Grid.Row="0" Label="Difficulty: " Text="{Binding Exercise.Exercise.Difficulty}" />
-                    <TextBlock Grid.Row="1" Text="{Binding Exercise.Exercise.Url}" />
-                    <TextBlock Grid.Row="2" Text="{Binding Exercise.Exercise.Description}"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Text="Url: " FontWeight="SemiBold" />
+                        <TextBlock>
+                            <Span>
+                                <Hyperlink NavigateUri="{Binding Exercise.Exercise.Url}">
+                                    <Run Text="{Binding Exercise.Exercise.Url}" />
+                                </Hyperlink>
+                            </Span>
+                        </TextBlock>
+                    </StackPanel>
+                    <TextBlock Grid.Row="2" Text="Description:" FontWeight="SemiBold"/>
+                    <TextBlock Grid.Row="3" Text="{Binding Exercise.Exercise.Description}" VerticalAlignment="Top" />
                 </Grid>
             </Grid>
             
