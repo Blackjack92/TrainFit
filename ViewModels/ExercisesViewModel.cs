@@ -1,5 +1,6 @@
 ﻿using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using System.Collections.ObjectModel;
+using System.Linq;
 using TrainFit.DataModels;
 using TrainFit.Models;
 using TrainFit.Services;
@@ -87,6 +88,10 @@ namespace TrainFit.ViewModels
             exercises.Add(new ExerciseDataModel(exercise3, imageService));
             exercises.Add(new ExerciseDataModel(exercise4, imageService));
         }
+        #endregion
+
+        #region methods
+       
         #endregion
     }
 }

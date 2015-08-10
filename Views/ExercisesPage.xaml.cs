@@ -1,4 +1,8 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.Mvvm.Interfaces;
+using System.Linq;
+using TrainFit.DataModels;
+using TrainFit.ViewModels;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -30,8 +34,17 @@ namespace TrainFit.Views
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var listBox = sender as ListBox;
+            if (listBox == null) { return; }
 
-        }
+            // Use this because it is not possible to bind on the selected item
+            var selectedElement = listBox.SelectedItem;
+
+            var viewModel = DataContext as ExercisesViewModel;
+            if (viewModel == null) { return; }
+
+            viewModel.SelectedExercise = selectedElement as ExerciseDataModel;
+         }
         #endregion
     }
 }
