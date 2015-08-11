@@ -29,7 +29,7 @@
             </StackPanel>
         </Controls:HamburgerMenu.LeftPane>
 
-        <Grid Background="{StaticResource BaseTheme.LightBlue}">
+        <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
