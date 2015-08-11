@@ -47,7 +47,7 @@
             </Grid>
 
             <ListBox Grid.Row="1" ItemsSource="{Binding Exercises}" Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
-                     SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid HorizontalAlignment="Stretch">
