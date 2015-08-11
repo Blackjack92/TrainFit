@@ -11,7 +11,6 @@ namespace TrainFit.Controls
         private const string btnTrainings = "btnTrainings";
         private const string btnRegister = "btnRegister";
         private const string btnMap = "btnMap";
-        private const string btnExercise = "btnExercise";
         private const string btnExercises = "btnExercises";
 
         private List<Button> buttons;
@@ -31,7 +30,6 @@ namespace TrainFit.Controls
             buttons.Add(GetTemplateChild(btnTrainings) as Button);
             buttons.Add(GetTemplateChild(btnRegister) as Button);
             buttons.Add(GetTemplateChild(btnMap) as Button);
-            buttons.Add(GetTemplateChild(btnExercise) as Button);
             buttons.Add(GetTemplateChild(btnExercises) as Button);
 
             foreach (var button in buttons)

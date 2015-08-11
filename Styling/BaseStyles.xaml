@@ -282,7 +282,6 @@
                         <controls:ImageButton x:Name="btnTrainings" Content="Trainings" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnProfile" Content="Profile" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnExercises" Content="Exercises" IconTemplate="{StaticResource Icon.Test}" />
-                        <controls:ImageButton x:Name="btnExercise" Content="Exercise" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnStatistics" Content="Statistics" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnGroups" Content="Groups" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnRegister" Content="Register" IconTemplate="{StaticResource Icon.Test}" />
