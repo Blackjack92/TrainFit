@@ -1,9 +1,11 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm.Interfaces;
+using System.Collections.Generic;
 using System.Windows.Input;
 using TrainFit.DataModels;
 using TrainFit.Models;
 using TrainFit.Services;
+using Windows.UI.Xaml.Navigation;
 
 namespace TrainFit.ViewModels
 {
@@ -24,16 +26,15 @@ namespace TrainFit.ViewModels
             base(navigationService)
         {
             BackCommand = new DelegateCommand(navigationService.GoBack);
+        }
+        #endregion
 
-            var exercise = new Exercise()
-            {
-                Name = "Test",
-                Description = "Description",
-                Difficulty = Difficulty.Easy,
-                Url = "https://www.google.at/"
-            };
+        #region methods
+        public override void OnNavigatedTo(object navigationParameter, NavigationMode navigationMode, Dictionary<string, object> viewModelState)
+        {
+            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
 
-            Exercise = new ExerciseDataModel(exercise, imageService);
+            Exercise = navigationParameter as ExerciseDataModel;
         }
         #endregion
     }
