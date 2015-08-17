@@ -33,6 +33,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Grid Background="{StaticResource BaseTheme.Menubar}">
@@ -52,6 +53,7 @@
                     <DataTemplate>
                         <Grid HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
@@ -60,13 +62,19 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding ImageSource}" />
-                            <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="1" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
-                            <Controls:LabelTextBlock Grid.Row="1" Grid.Column="1" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
+                            <CheckBox Grid.Column="0" Visibility="Visible" IsChecked="{Binding IsChecked}" />
+                            <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />
+                            <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
+                            <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <StackPanel Grid.Row="2">
+                <Button Content="Enable Selection" Click="OnEnableSelectionClicked"/>
+                
+            </StackPanel>
         </Grid>
     </Controls:HamburgerMenu>
 </Page>

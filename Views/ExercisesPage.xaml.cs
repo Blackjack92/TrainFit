@@ -32,5 +32,10 @@ namespace TrainFit.Views
         {
         }
         #endregion
+
+        private void OnEnableSelectionClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }
