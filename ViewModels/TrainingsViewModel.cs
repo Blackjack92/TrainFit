@@ -1,10 +1,12 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm.Interfaces;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using TrainFit.Models;
 using TrainFit.Services;
+using Windows.UI.Xaml.Navigation;
 
 namespace TrainFit.ViewModels
 {
@@ -70,6 +72,21 @@ namespace TrainFit.ViewModels
         private void LoadFromDatabase()
         {
             Exercises = databaseService.ReadListFromDatabase<Exercise>();
+        }
+
+        public override void OnNavigatedTo(object navigationParameter, NavigationMode navigationMode, Dictionary<string, object> viewModelState)
+        {
+            base.OnNavigatedTo(navigationParameter, navigationMode, viewModelState);
+            Exercises.Clear();
+
+            var parameters = navigationParameter as IEnumerable<Exercise>;
+            if (parameters != null)
+            {
+                foreach (var parameter in parameters)
+                {
+                    Exercises.Add(parameter);
+                }
+            }
         }
         #endregion
     }

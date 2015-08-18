@@ -9,13 +9,15 @@ namespace TrainFit.DataModels
         #region fields
         private Exercise exercise;
         private ImageSource imageSource;
-        private bool isSelected;
+        private bool isChecked;
         #endregion
 
         #region properties
         public Exercise Exercise { get { return exercise; } private set { SetProperty(ref exercise, value); } }
         public ImageSource ImageSource { get { return imageSource; } private set { SetProperty(ref imageSource, value); } }
-        public bool IsSelected { get { return isSelected; } private set { SetProperty(ref isSelected, value); } }
+        public bool IsChecked { get { return isChecked; } private set 
+        { 
+            SetProperty(ref isChecked, value); } }
         #endregion
 
         #region ctor

@@ -1,6 +1,8 @@
-﻿using Microsoft.Practices.Prism.Mvvm.Interfaces;
+﻿using Microsoft.Practices.Prism.Commands;
+using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 using TrainFit.DataModels;
 using TrainFit.Models;
 using TrainFit.Services;
@@ -34,12 +36,16 @@ namespace TrainFit.ViewModels
                 }
             }
         }
+
+        public ICommand CreateTrainingCommand { get; private set; } 
         #endregion
 
         #region ctor
         public ExercisesViewModel(INavigationService navigationService, ImageService imageService) 
             : base(navigationService)
         {
+            CreateTrainingCommand = new DelegateCommand(CreateTraining, CanCreateTraining);
+
             exercises = new ObservableCollection<ExerciseDataModel>();
 
             // TODO: Remove this test data
@@ -91,7 +97,17 @@ namespace TrainFit.ViewModels
         #endregion
 
         #region methods
-       
+        private bool CanCreateTraining()
+        {
+            // TODO: fix this
+            //return Exercises.Any(exercise => exercise.IsSelected);
+            return true;
+        }
+
+        private void CreateTraining()
+        {
+            NavigationService.Navigate(Navigate.Trainings.PageName(), exercises.Where(exercise => exercise.IsChecked).Select(exercise => exercise.Exercise));
+        }
         #endregion
     }
 }
