@@ -47,7 +47,7 @@
                 <!--<Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />-->
             </Grid>
 
-            <ListBox Grid.Row="1" ItemsSource="{Binding Exercises}" Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
+            <ListBox x:Name="listBox" Grid.Row="1" ItemsSource="{Binding Exercises}" Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
                      SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

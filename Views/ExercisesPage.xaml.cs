@@ -2,8 +2,11 @@
 using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using System.Linq;
 using TrainFit.DataModels;
+using TrainFit.Utils;
 using TrainFit.ViewModels;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // Die Elementvorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkID=390556 dokumentiert.
@@ -31,11 +34,17 @@ namespace TrainFit.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
-        #endregion
 
-        private void OnEnableSelectionClicked(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void OnEnableSelectionClicked(object sender, RoutedEventArgs e)
         {
-
+            var checkBoxes = XamlHelper.GetChildrenOfType<CheckBox>(listBox);
+            foreach (var checkBox in checkBoxes)
+            {
+                checkBox.Visibility = checkBox.Visibility == Visibility.Collapsed 
+                    ? Visibility.Visible 
+                    : Visibility.Collapsed;
+            }
         }
+        #endregion
     }
 }
