@@ -8,6 +8,9 @@ namespace TrainFit.Services
 {
     public class XmlService
     {
+
+        private static XmlSerializerService xmlSerializerService = new XmlSerializerService();
+
         public static async Task<T> ReadObjectFromXmlFileAsync<T>(string filename)
         {
             // this reads XML content from a file ("filename") and returns an object  from the XML
@@ -15,9 +18,11 @@ namespace TrainFit.Services
             var serializer = new XmlSerializer(typeof(T));
             StorageFolder folder = ApplicationData.Current.LocalFolder;
             StorageFile file = await folder.GetFileAsync(filename);
-            Stream stream = await file.OpenStreamForReadAsync();
-            objectFromXml = (T)serializer.Deserialize(stream);
-            stream.Dispose();
+            using (Stream stream = await file.OpenStreamForReadAsync())
+            {
+                objectFromXml = await xmlSerializerService.ReadObjectFromXmlFileAsync<T>(stream);
+            }
+
             return objectFromXml;
         }
 
@@ -31,7 +36,7 @@ namespace TrainFit.Services
 
             using (stream)
             {
-                serializer.Serialize(stream, objectToSave);
+                await xmlSerializerService.SaveObjectToXmlAsync(objectToSave, stream);
             }
         }
     }

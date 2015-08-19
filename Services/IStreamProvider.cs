@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 using Windows.Storage.Streams;
 
 namespace TrainFit.Services
@@ -11,7 +12,7 @@ namespace TrainFit.Services
    public interface IStreamProvider
     {
 
-        Task<Stream> CreateStream();
-
+        Task<Stream> CreateStreamAsync(FileAccessMode accessMode);
+        
     }
 }

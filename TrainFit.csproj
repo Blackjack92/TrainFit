@@ -62,7 +62,7 @@
     <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
-    <PlatformTarget>ARM</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
@@ -83,7 +83,7 @@
     <SDKReference Include="Microsoft.VCLibs, version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.WP81, Version=3.8.10">
+    <SDKReference Include="SQLite.WP81, Version=3.8.10.2">
       <Name>SQLite for Windows Phone 8.1</Name>
     </SDKReference>
   </ItemGroup>
@@ -112,9 +112,13 @@
     <Compile Include="Services\IDatabaseService.cs" />
     <Compile Include="Services\IImageSourceProvider.cs" />
     <Compile Include="Services\ImageService.cs" />
+    <Compile Include="Services\IStreamProvider.cs" />
     <Compile Include="Services\ITimerService.cs" />
     <Compile Include="Services\ImageSourceProvider.cs" />
+    <Compile Include="Services\LocalStreamProvider.cs" />
     <Compile Include="Services\TimeService.cs" />
+    <Compile Include="Services\XmlDataReader.cs" />
+    <Compile Include="Services\XmlSerializerService.cs" />
     <Compile Include="Services\XmlService.cs" />
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />

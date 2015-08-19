@@ -11,7 +11,9 @@ namespace TrainFit.Services
     {
         public async Task<T> ReadObjectFromXmlFileAsync<T>(Stream inputStream)
         {
-           var deserializedObject = await new Task<T>(() => { return ReadObjectFromXmlFile<T>(inputStream); });
+            Task<T> task = new Task<T>(() => { return ReadObjectFromXmlFile<T>(inputStream); });
+           task.RunSynchronously();
+                var deserializedObject = await task ;
            
             return deserializedObject;
         }
@@ -20,10 +22,12 @@ namespace TrainFit.Services
 
         public async Task SaveObjectToXmlAsync<T>(T objectToSave, Stream outputStream)
         {
-            await new Task(() => {
-               SaveObjectToXml<T>(objectToSave,outputStream);
+            Task task = new Task(() => {
+                SaveObjectToXml<T>(objectToSave, outputStream);
 
             });
+            task.RunSynchronously();
+            await task;
         }
 
         public void SaveObjectToXml<T>(T objectToSave, Stream outputStream)
