@@ -7,10 +7,7 @@ using Windows.Storage;
 
 namespace TrainFit.Services
 {
-    public interface IDataReader<T>
-    {
-        Task<ICollection<T>> ReadAll();
-    }
+  
 
     public class XmlDataReader<T> : IDataReader<T>
     {
@@ -25,7 +22,7 @@ namespace TrainFit.Services
         }
 
 
-        public async Task<ICollection<T>> ReadAll()
+        public async Task<ICollection<T>> ReadAllAsync()
         {
 
             ICollection<T> readObjects;

@@ -6,6 +6,7 @@
         Arm,
         Abs,
         Back,
-        Chest
+        Chest,
+        Butt
     }
 }

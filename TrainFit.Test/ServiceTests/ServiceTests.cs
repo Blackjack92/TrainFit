@@ -90,5 +90,18 @@ namespace TrainFit.Test.ServiceTests
             Assert.AreEqual(0, actualPseudoObjectList.Count);
         }
 
+        [TestMethod]
+        public void ReadAllExercises()
+        {
+            String exercisesXmlUriString = "ms-appx:///Assets/Xmls/Exercises.xml";
+            IStreamProvider streamProvider = new LocalStreamProvider(exercisesXmlUriString);
+            XmlSerializerService xmlSerializerService = new XmlSerializerService();
+            IDataReader<Exercise> dataReader = new XmlDataReader<Exercise>(streamProvider,xmlSerializerService);
+
+           var exercises = dataReader.ReadAllAsync().Result;
+        
+           Assert.AreEqual(6,exercises.Count);
+        }
+
     }
 }

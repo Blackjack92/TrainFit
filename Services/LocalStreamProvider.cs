@@ -8,11 +8,15 @@ using Windows.Storage;
 
 namespace TrainFit.Services
 {
-    class LocalStreamProvider : IStreamProvider
+   public class LocalStreamProvider : IStreamProvider
     {
 
         public string UrlString { get; set; }
 
+       public LocalStreamProvider(string urlString)
+       {
+           UrlString = urlString;
+       }
 
         public async Task<Stream> CreateStreamAsync(FileAccessMode accesMode)
         {
