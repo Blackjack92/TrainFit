@@ -110,6 +110,7 @@
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\GPSService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
+    <Compile Include="Services\IDataReader.cs" />
     <Compile Include="Services\IImageSourceProvider.cs" />
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\IStreamProvider.cs" />
@@ -303,6 +304,7 @@
     <Content Include="Assets\Images\Zoom-in.png" />
     <Content Include="Assets\Images\Zoom-out.png" />
     <Content Include="Assets\Images\Zoom.png" />
+    <Content Include="Assets\Xmls\Exercises.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
