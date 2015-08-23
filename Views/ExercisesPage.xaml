@@ -71,9 +71,9 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <Button Content="Enable Selection" Click="OnEnableSelectionClicked"/>
-                <Button Content="Create training" Command="{Binding CreateTrainingCommand}" />
+                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" />
             </StackPanel>
         </Grid>
     </Controls:HamburgerMenu>
