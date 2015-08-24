@@ -116,11 +116,11 @@
     <Compile Include="Services\IStreamProvider.cs" />
     <Compile Include="Services\ITimerService.cs" />
     <Compile Include="Services\ImageSourceProvider.cs" />
+    <Compile Include="Services\IXmlSerializerService.cs" />
     <Compile Include="Services\LocalStreamProvider.cs" />
     <Compile Include="Services\TimeService.cs" />
     <Compile Include="Services\XmlDataReader.cs" />
     <Compile Include="Services\XmlSerializerService.cs" />
-    <Compile Include="Services\XmlService.cs" />
     <Compile Include="SQLite\SQLite.cs" />
     <Compile Include="SQLite\SQLiteAsync.cs" />
     <Compile Include="Utils\Navigate.cs" />

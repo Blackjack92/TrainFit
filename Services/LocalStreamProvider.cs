@@ -1,31 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace TrainFit.Services
 {
-   public class LocalStreamProvider : IStreamProvider
+    public class LocalStreamProvider : IStreamProvider
     {
+        #region properties
+        private string urlString;
+        #endregion
 
-        public string UrlString { get; set; }
+        #region ctor
+        public LocalStreamProvider(string urlString)
+        {
+            this.urlString = urlString;
+        }
+        #endregion
 
-       public LocalStreamProvider(string urlString)
-       {
-           UrlString = urlString;
-       }
-
+        #region methods
         public async Task<Stream> CreateStreamAsync(FileAccessMode accesMode)
         {
-            Uri uri = new Uri(UrlString,UriKind.Absolute);
-            var file =await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri);
+            Uri uri = new Uri(urlString, UriKind.Absolute);
+            var file = await StorageFile.GetFileFromApplicationUriAsync(uri);
             var stream = await file.OpenAsync(accesMode);
             return stream.AsStream();
-
-
         }
+        #endregion
     }
 }

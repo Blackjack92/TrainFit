@@ -65,6 +65,7 @@ namespace TrainFit
             container.RegisterType<IImageSourceProvider, ImageSourceProvider>("imageSourceProvider", new ContainerControlledLifetimeManager());
             container.RegisterType<IEnumerable<IImageSourceProvider>, IImageSourceProvider[]>(new ContainerControlledLifetimeManager());
             container.RegisterType<ImageService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IXmlSerializerService>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
 

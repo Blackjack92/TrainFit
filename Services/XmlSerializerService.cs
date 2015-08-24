@@ -1,31 +1,22 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using Windows.Storage;
-using Windows.Storage.Streams;
 
 namespace TrainFit.Services
 {
-    public class XmlSerializerService
+    public class XmlSerializerService : IXmlSerializerService
     {
+        #region methods
         public async Task<T> ReadObjectFromXmlFileAsync<T>(Stream inputStream)
         {
             Task<T> task = new Task<T>(() => { return ReadObjectFromXmlFile<T>(inputStream); });
-           task.RunSynchronously();
-                var deserializedObject = await task ;
-           
-            return deserializedObject;
+            task.RunSynchronously();
+            return await task;
         }
-
-
 
         public async Task SaveObjectToXmlAsync<T>(T objectToSave, Stream outputStream)
         {
-            Task task = new Task(() => {
-                SaveObjectToXml<T>(objectToSave, outputStream);
-
-            });
+            Task task = new Task(() => { SaveObjectToXml<T>(objectToSave, outputStream); });
             task.RunSynchronously();
             await task;
         }
@@ -38,13 +29,9 @@ namespace TrainFit.Services
 
         public T ReadObjectFromXmlFile<T>(Stream inputStream)
         {
-            T objectFromXml = default(T);
             var serializer = new XmlSerializer(typeof(T));
-            objectFromXml = (T)serializer.Deserialize(inputStream);
-            return objectFromXml;
+            return (T)serializer.Deserialize(inputStream);
         }
-
-
-
+        #endregion
     }
 }

@@ -1,37 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace TrainFit.Services
 {
-  
-
     public class XmlDataReader<T> : IDataReader<T>
     {
-        public IStreamProvider StreamProvider { get; set; }
-        public XmlSerializerService XmlSerializerService { get; set; }
+        #region fields
+        private IStreamProvider streamProvider;
+        private IXmlSerializerService xmlSerializer;
+        #endregion
 
-
-        public XmlDataReader(IStreamProvider streamProvider,XmlSerializerService xmlSerializer)
+        #region ctor
+        public XmlDataReader(IStreamProvider streamProvider, IXmlSerializerService xmlSerializer)
         {
-            StreamProvider = streamProvider;
-            XmlSerializerService = xmlSerializer;
+            this.streamProvider = streamProvider;
+            this.xmlSerializer = xmlSerializer;
         }
+        #endregion
 
-
+        #region methods
         public async Task<ICollection<T>> ReadAllAsync()
         {
-
             ICollection<T> readObjects;
-            using (var stream = await StreamProvider.CreateStreamAsync(FileAccessMode.Read))
+            using (var stream = await streamProvider.CreateStreamAsync(FileAccessMode.Read))
             {
-                readObjects= await XmlSerializerService.ReadObjectFromXmlFileAsync<List<T>>(stream);
+                readObjects= await xmlSerializer.ReadObjectFromXmlFileAsync<List<T>>(stream);
             }
 
             return readObjects;
         }
+        #endregion
     }
 }
