@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TrainFit.Controllers;
 using TrainFit.Models;
 using TrainFit.Services;
 using TrainFit.ViewModels;
@@ -15,21 +16,20 @@ namespace TrainFit
     {
         #region fields
         private UnityContainer container;
-        private IDatabaseService databaseService;
+        private MainController controller;
         #endregion
 
         #region ctor
         public App() : base()
-        {
-            databaseService = new DatabaseService();
-            databaseService.CreateTable<Exercise>();
-        }
+        { }
         #endregion
 
         #region methods
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args)
         {
-            NavigationService.Navigate("Login", null);
+            controller = container.Resolve<MainController>();
+            controller.Run();
+
             return Task.FromResult<object>(null);
         }
 
@@ -52,9 +52,9 @@ namespace TrainFit
             // Initialize IOC stuff
             container = new UnityContainer();
             container.RegisterInstance(NavigationService);
-            container.RegisterInstance(databaseService);
             container.RegisterInstance(container);
 
+            container.RegisterType<MainController>(new ContainerControlledLifetimeManager());
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<RegisterViewModel>(new ContainerControlledLifetimeManager());
@@ -65,6 +65,7 @@ namespace TrainFit
             container.RegisterType<IImageSourceProvider, ImageSourceProvider>("imageSourceProvider", new ContainerControlledLifetimeManager());
             container.RegisterType<IEnumerable<IImageSourceProvider>, IImageSourceProvider[]>(new ContainerControlledLifetimeManager());
             container.RegisterType<ImageService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IDatabaseService, DatabaseService>(new ContainerControlledLifetimeManager());
             container.RegisterType<IXmlSerializerService>(new ContainerControlledLifetimeManager());
 
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(ResolveViewModelType);
