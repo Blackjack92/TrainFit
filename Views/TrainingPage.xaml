@@ -7,10 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:storeApps="using:Microsoft.Practices.Prism.Mvvm"
     mc:Ignorable="d"
+    xmlns:Controls="using:TrainFit.Controls"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
-    <Grid>
-
-    </Grid>
+    <Controls:HamburgerMenu>
+        <Grid Background="{StaticResource BaseTheme.LightWhite}">
+        </Grid>
+    </Controls:HamburgerMenu>
 </Page>

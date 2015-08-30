@@ -1,5 +1,8 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Linq;
+using TrainFit.Utils;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
@@ -38,7 +41,7 @@ namespace TrainFit.Controls
         #region ctor
         public HamburgerMenu()
         {
-            this.DefaultStyleKey = typeof(HamburgerMenu);
+            DefaultStyleKey = typeof(HamburgerMenu);
         }
         #endregion
 
@@ -46,26 +49,51 @@ namespace TrainFit.Controls
         protected override void OnApplyTemplate()
         {
             // Find the left pane in the control template and store a reference
-            this.LeftPanePresenter = this.GetTemplateChild("leftPanePresenter") as ContentPresenter;
-            this.MainPaneRectangle = this.GetTemplateChild("mainPaneRectangle") as Rectangle;
+            LeftPanePresenter = GetTemplateChild("leftPanePresenter") as ContentPresenter;
+            MainPaneRectangle = GetTemplateChild("mainPaneRectangle") as Rectangle;
+            var mainToggleButton = GetTemplateChild("toggleButtonHamburgerMenu") as ToggleButton;
+            var sideToggleButton = XamlHelper.GetChildrenOfType<ToggleButton>(LeftPanePresenter.Content as StackPanel).FirstOrDefault();
 
-            if (this.MainPaneRectangle != null)
-                this.MainPaneRectangle.Tapped += (sender, e) => { this.IsLeftPaneOpen = false; };
+            if (MainPaneRectangle != null)
+            {
+                MainPaneRectangle.Tapped += (sender, e) => { IsLeftPaneOpen = false; };
+            }
 
             // Ensure that the TranslateX on the RenderTransform of the left pane is set to the negative value of the left pa
-            this.SetLeftPanePresenterX();
+            SetLeftPanePresenterX();
+
+            // Set open/close for the sidebar
+            if(mainToggleButton != null)
+            {
+                mainToggleButton.Click += OpenSidebar;
+            }
+
+            if (sideToggleButton != null)
+            {
+                sideToggleButton.Click += CloseSidebar;
+            }
 
             base.OnApplyTemplate();
+        }
+
+        private void CloseSidebar(object sender, RoutedEventArgs e)
+        {
+            IsLeftPaneOpen = false;
+        }
+
+        private void OpenSidebar(object sender, RoutedEventArgs e)
+        {
+            IsLeftPaneOpen = true;
         }
 
         private void SetLeftPanePresenterX()
         {
             // Set the X position of the left pane content presenter to the negative of the pane so that it's off to the left of the screen when closed
-            if (this.LeftPanePresenter != null)
+            if (LeftPanePresenter != null)
             {
-                this.LeftPanePresenter.RenderTransform = new CompositeTransform()
+                LeftPanePresenter.RenderTransform = new CompositeTransform()
                 {
-                    TranslateX = -this.LeftPaneWidth
+                    TranslateX = -LeftPaneWidth
                 };
             }
         }

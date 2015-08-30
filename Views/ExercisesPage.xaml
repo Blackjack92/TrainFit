@@ -5,49 +5,20 @@
     xmlns:local="using:TrainFit.Views"
     xmlns:storeApps="using:Microsoft.Practices.Prism.Mvvm"
     xmlns:Controls="using:TrainFit.Controls"
-    xmlns:Converters="using:TrainFit.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
-    <Page.Resources>
-        <Converters:DummyConverter x:Key="DummyConverter" />
-    </Page.Resources>
-    
-    <Controls:HamburgerMenu x:Name="hamburger" LeftPaneWidth="300">
-        <Controls:HamburgerMenu.LeftPane>
-            <!-- Define your left pane here -->
-            <StackPanel Background="{StaticResource BaseTheme.LightWhite}">
-                <StackPanel Background="{StaticResource BaseTheme.Menubar}">
-                    <!-- Element you should use in your body to help you open/close the left pane -->
-                    <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
-                </StackPanel>
-
-                <Controls:Sidebar />
-            </StackPanel>
-        </Controls:HamburgerMenu.LeftPane>
-
+    <Controls:HamburgerMenu>
         <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Grid Background="{StaticResource BaseTheme.Menubar}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <!-- Element you should use in your body to help you open/close the left pane -->
-                <ToggleButton Grid.Column="0" IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
-                <!--<Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />-->
-            </Grid>
-
-            <ListBox x:Name="listBox" Grid.Row="1" ItemsSource="{Binding Exercises}" Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
+            <ListBox x:Name="listBox" Grid.Row="0" ItemsSource="{Binding Exercises}" Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
                      SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -71,7 +42,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Content="Enable Selection" Click="OnEnableSelectionClicked"/>
                 <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" />
             </StackPanel>

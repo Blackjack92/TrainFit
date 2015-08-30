@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TrainFit.Styling"
     xmlns:controls="using:TrainFit.Controls">
-    
+
     <!-- Default colors -->
     <Color x:Key="BaseColor.White">#FFFFFF</Color>
     <Color x:Key="BaseColor.Black">#000000</Color>
@@ -27,7 +27,12 @@
     <SolidColorBrush x:Key="BaseTheme.LightWhite" Color="{StaticResource BaseColor.LightWhite}" />
 
     <SolidColorBrush x:Key="BaseTheme.DarkBlue" Color="{StaticResource BaseColor.DarkBlue}" />
-    
+
+    <LinearGradientBrush x:Key="BaseTheme.Menubar" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="{StaticResource BaseColor.Blue}" />
+        <GradientStop Color="{StaticResource BaseColor.LightWhite}" Offset="0.75"/>
+    </LinearGradientBrush>
+
     <!--TODO: Add default font sizes -->
     
     <!-- Default styles -->
@@ -148,9 +153,10 @@
     </Style>
 
     <Style x:Key="HamburgerMenu.Base" TargetType="controls:HamburgerMenu">
+        <Setter Property="LeftPaneWidth" Value="300" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:HamburgerMenu">
+                <ControlTemplate TargetType="controls:HamburgerMenu" x:Name="hamburger">
                     <Grid Background="{TemplateBinding Background}" Width="{TemplateBinding Width}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup>
@@ -190,14 +196,45 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Background="{StaticResource BaseTheme.Menubar}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Element you should use in your body to help you open/close the left pane -->
+                            <ToggleButton Grid.Column="0" x:Name="toggleButtonHamburgerMenu" Foreground="{StaticResource BaseTheme.LightRed}" Style="{StaticResource HamburgerToggleButton.Base}" />
+                            <!--<Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />-->
+                        </Grid>
+
                         <!-- Main body container -->
-                        <ContentPresenter Grid.Column="0" Grid.ColumnSpan="2" Content="{TemplateBinding Content}" />
+                        <ContentPresenter Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Content="{TemplateBinding Content}" />
+                       
                         <!-- Element to obscure main body when left pane is open -->
-                        <Rectangle Grid.Column="0" Grid.ColumnSpan="2" x:Name="mainPaneRectangle" Visibility="Collapsed" Opacity="0" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
-                        <!-- Left pane container -->
-                        <ContentPresenter Grid.Column="0" x:Name="leftPanePresenter" Content="{TemplateBinding LeftPane}" Width="{TemplateBinding LeftPaneWidth}" />
+                        <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" x:Name="mainPaneRectangle" Visibility="Collapsed" Opacity="0" Fill="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+
+                        <!-- Sidebar content -->
+                        <ContentPresenter Grid.Column="0" Grid.RowSpan="2" x:Name="leftPanePresenter" Content="{TemplateBinding LeftPane}" Width="{TemplateBinding LeftPaneWidth}" />
                     </Grid>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="LeftPane">
+            <Setter.Value>
+                <!--Define your left pane here--> 
+                <StackPanel Background="{StaticResource BaseTheme.LightWhite}">
+                    <!-- TODO: check why this cannot be used StaticResource BaseTheme.Menubar from the other styles -->
+                    <StackPanel Background="{StaticResource BaseTheme.Menubar}">
+                         <!--Element you should use in your body to help you open/close the left pane-->
+                        <ToggleButton Foreground="{StaticResource BaseTheme.LightRed}" Style="{StaticResource HamburgerToggleButton.Base}" />
+                    </StackPanel>
+                    <controls:Sidebar />
+                </StackPanel>
             </Setter.Value>
         </Setter>
     </Style>

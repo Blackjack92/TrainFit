@@ -12,37 +12,13 @@
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
     <Controls:HamburgerMenu x:Name="hamburger" LeftPaneWidth="300">
-        <Controls:HamburgerMenu.LeftPane>
-            <!-- Define your left pane here -->
-            <StackPanel Background="{StaticResource BaseTheme.LightWhite}">
-                <StackPanel Background="{StaticResource BaseTheme.Menubar}">
-                    <!-- Element you should use in your body to help you open/close the left pane -->
-                    <ToggleButton IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
-                </StackPanel>
-
-                <Controls:Sidebar />
-            </StackPanel>
-        </Controls:HamburgerMenu.LeftPane>
-
-        <Grid Background="{StaticResource BaseTheme.LightBlue}">
+        <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Grid Background="{StaticResource BaseTheme.Menubar}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <!-- Element you should use in your body to help you open/close the left pane -->
-                <ToggleButton Grid.Column="0" IsChecked="{Binding IsLeftPaneOpen, ElementName=hamburger, Mode=TwoWay}" Style="{StaticResource HamburgerToggleButton.Menubar}" />
-                <!--<Image Grid.Column="1" Source="{StaticResource BaseImage.Logo}" Height="50" Margin="5,0" />-->
-            </Grid>
-
-            <ListBox Grid.Row="1" ItemsSource="{Binding Exercises}" Background="{StaticResource BaseTheme.LightBlue}" HorizontalContentAlignment="Stretch">
+            <ListBox Grid.Row="0" ItemsSource="{Binding Exercises}" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="{StaticResource BaseTheme.DarkBlue}" BorderThickness="2"  Margin="5">
@@ -68,7 +44,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Button Content="Add" Command="{Binding AddExerciseCommand}"/>
                 <Button Content="Remove" Command="{Binding RemoveExerciseCommand}"/>
                 <Button Content="Store" Command="{Binding StoreInDatabaseCommand}"/>

@@ -134,6 +134,7 @@
     <Compile Include="ViewModels\MapViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TrainingsViewModel.cs" />
+    <Compile Include="ViewModels\TrainingViewModel.cs" />
     <Compile Include="Views\ExercisePage.xaml.cs">
       <DependentUpon>ExercisePage.xaml</DependentUpon>
     </Compile>
@@ -152,6 +153,9 @@
     </Compile>
     <Compile Include="Views\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrainingPage.xaml.cs">
+      <DependentUpon>TrainingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TrainingsPage.xaml.cs">
       <DependentUpon>TrainingsPage.xaml</DependentUpon>
@@ -344,6 +348,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrainingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
