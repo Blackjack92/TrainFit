@@ -43,8 +43,8 @@
             </ListBox>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Button Content="Enable Selection" Click="OnEnableSelectionClicked"/>
-                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" />
+                <Button Content="Enable Selection" Click="OnEnableSelectionClicked" />
+                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" Visibility="Collapsed" />
             </StackPanel>
         </Grid>
     </Controls:HamburgerMenu>

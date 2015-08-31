@@ -1,6 +1,8 @@
 ﻿using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm.Interfaces;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using TrainFit.DataModels;
@@ -37,7 +39,7 @@ namespace TrainFit.ViewModels
             }
         }
 
-        public ICommand CreateTrainingCommand { get; private set; } 
+        public DelegateCommand CreateTrainingCommand { get; private set; } 
         #endregion
 
         #region ctor
@@ -89,6 +91,8 @@ namespace TrainFit.ViewModels
                 Url = "https://www.google.at/"
             };
 
+            exercises.CollectionChanged += OnCollectionChanged;
+
             exercises.Add(new ExerciseDataModel(exercise1, imageService));
             exercises.Add(new ExerciseDataModel(exercise2, imageService));
             exercises.Add(new ExerciseDataModel(exercise3, imageService));
@@ -97,11 +101,41 @@ namespace TrainFit.ViewModels
         #endregion
 
         #region methods
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            // Eventually find a better solution
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                foreach (var item in e.NewItems.OfType<ExerciseDataModel>())
+                {
+                    item.PropertyChanged += OnIsCheckedChanged;
+                }
+            }
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
+            {
+                foreach (var item in e.NewItems.OfType<ExerciseDataModel>())
+                {
+                    item.PropertyChanged -= OnIsCheckedChanged;
+                }
+            }
+        }
+
+        private void OnIsCheckedChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals("IsChecked"))
+            {
+                UpdateCommands();
+            }
+        }
+
+        private void UpdateCommands()
+        {
+            CreateTrainingCommand.RaiseCanExecuteChanged();
+        }
+
         private bool CanCreateTraining()
         {
-            // TODO: fix this
-            //return Exercises.Any(exercise => exercise.IsSelected);
-            return true;
+            return Exercises.Any(exercise => exercise.IsChecked);
         }
 
         private void CreateTraining()
