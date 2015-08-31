@@ -9,6 +9,7 @@ namespace TrainFit.Controls
     {
         #region fields
         private const string btnTrainings = "btnTrainings";
+        private const string btnTraining = "btnTraining";
         private const string btnRegister = "btnRegister";
         private const string btnMap = "btnMap";
         private const string btnExercises = "btnExercises";
@@ -28,6 +29,7 @@ namespace TrainFit.Controls
         protected override void OnApplyTemplate()
         {
             buttons.Add(GetTemplateChild(btnTrainings) as Button);
+            buttons.Add(GetTemplateChild(btnTraining) as Button);
             buttons.Add(GetTemplateChild(btnRegister) as Button);
             buttons.Add(GetTemplateChild(btnMap) as Button);
             buttons.Add(GetTemplateChild(btnExercises) as Button);

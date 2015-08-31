@@ -58,8 +58,8 @@ namespace TrainFit
             container.RegisterType<LoginViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MainViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<RegisterViewModel>(new ContainerControlledLifetimeManager());
-            container.RegisterType<TrainingsViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<TrainingViewModel>(new ContainerControlledLifetimeManager());
+            container.RegisterType<TrainingsViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<MapViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ExerciseViewModel>(new ContainerControlledLifetimeManager());
             container.RegisterType<ExercisesViewModel>(new ContainerControlledLifetimeManager());

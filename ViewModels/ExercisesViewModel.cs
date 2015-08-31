@@ -106,7 +106,7 @@ namespace TrainFit.ViewModels
 
         private void CreateTraining()
         {
-            NavigationService.Navigate(Navigate.Trainings.PageName(), exercises.Where(exercise => exercise.IsChecked).Select(exercise => exercise.Exercise));
+            NavigationService.Navigate(Navigate.Training.PageName(), exercises.Where(exercise => exercise.IsChecked).Select(exercise => exercise.Exercise));
         }
         #endregion
     }

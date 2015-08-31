@@ -8,6 +8,7 @@ namespace TrainFit.Utils
         Main,
         Register,
         Trainings,
+        Training,
         Exercise,
         Exercises
     }

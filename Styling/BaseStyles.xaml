@@ -491,6 +491,7 @@
                 <ControlTemplate TargetType="controls:Sidebar">
                     <StackPanel Background="{StaticResource BaseTheme.LightWhite}">
                         <controls:ImageButton x:Name="btnTrainings" Content="Trainings" IconTemplate="{StaticResource Icon.Test}" />
+                        <controls:ImageButton x:Name="btnTraining" Content="Training" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnProfile" Content="Profile" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnExercises" Content="Exercises" IconTemplate="{StaticResource Icon.Test}" />
                         <controls:ImageButton x:Name="btnStatistics" Content="Statistics" IconTemplate="{StaticResource Icon.Test}" />
