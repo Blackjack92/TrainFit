@@ -17,6 +17,7 @@ namespace TrainFit.ViewModels
         #region fields
         private ObservableCollection<ExerciseDataModel> exercises;
         private ExerciseDataModel selectedExercise;
+        private bool isCreateTrainingEnabled;
         #endregion
 
         #region properties
@@ -32,12 +33,15 @@ namespace TrainFit.ViewModels
             set
             {
                 SetProperty(ref selectedExercise, value);
-                if (selectedExercise != null)
+
+                if (!IsCreateTrainingEnabled && selectedExercise != null)
                 {
                     NavigationService.Navigate(Navigate.Exercise.PageName(), selectedExercise);
                 }
             }
         }
+
+        public bool IsCreateTrainingEnabled { get { return isCreateTrainingEnabled; } set { SetProperty(ref isCreateTrainingEnabled, value); } }
 
         public DelegateCommand CreateTrainingCommand { get; private set; } 
         #endregion
@@ -48,6 +52,7 @@ namespace TrainFit.ViewModels
         {
             CreateTrainingCommand = new DelegateCommand(CreateTraining, CanCreateTraining);
 
+            IsCreateTrainingEnabled = true;
             exercises = new ObservableCollection<ExerciseDataModel>();
 
             // TODO: Remove this test data
@@ -135,7 +140,7 @@ namespace TrainFit.ViewModels
 
         private bool CanCreateTraining()
         {
-            return Exercises.Any(exercise => exercise.IsChecked);
+            return IsCreateTrainingEnabled && Exercises.Any(exercise => exercise.IsChecked);
         }
 
         private void CreateTraining()
