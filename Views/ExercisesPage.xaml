@@ -9,10 +9,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:converter="using:TrainFit.Converters"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
+    <Page.Resources>
+        <converter:MultiValueDummyConverter x:Key="DummyConverter" SelectedItem="{Binding}" />
+    </Page.Resources>
+    
     <Controls:HamburgerMenu>
         <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.RowDefinitions>
@@ -21,12 +26,13 @@
             </Grid.RowDefinitions>
 
             <ListBox x:Name="listBox" Grid.Row="0" ItemsSource="{Binding Exercises}"  Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
-                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" Tapped="OnElementTapped">
+                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" Tapped="OnElementTapped" BorderBrush="Transparent" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ContentControl>
+                        <ContentControl x:Name="content">
                             <Grid HorizontalAlignment="Stretch">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="3*"/>
                                 </Grid.ColumnDefinitions>
@@ -35,68 +41,14 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding ImageSource}" />
-                                <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="1" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
-                                <Controls:LabelTextBlock Grid.Row="1" Grid.Column="1" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
+                                <CheckBox Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked, Mode=TwoWay}" MinWidth="0" VerticalAlignment="Center" />
+                                <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />
+                                <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" Foreground="{Binding ElementName=listBox, Path=SelectedItem, Converter={StaticResource DummyConverter}}" />
+                                <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True"  />
                             </Grid>
                         </ContentControl>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-                <!--<Interactivity:Interaction.Behaviors>
-                    <Core:DataTriggerBehavior Binding="{Binding IsCreateTrainingEnabled}" Value="True">
-                        <Core:ChangePropertyAction PropertyName="ItemTemplate">
-                            <Core:ChangePropertyAction.Value>
-                                <ControlTemplate>
-                                    <Border BorderBrush="Green">
-                                        <Grid HorizontalAlignment="Stretch">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="3*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                            </Grid.RowDefinitions>
-
-                                            <Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding ImageSource}" />
-                                            <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="1" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
-                                            <Controls:LabelTextBlock Grid.Row="1" Grid.Column="1" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
-                                        </Grid>
-                                    </Border>
-                                </ControlTemplate>
-
-                            </Core:ChangePropertyAction.Value>
-                        </Core:ChangePropertyAction>
-                    </Core:DataTriggerBehavior>
-                    <Core:DataTriggerBehavior Binding="{Binding IsCreateTrainingEnabled}" Value="False">
-                        <Core:ChangePropertyAction PropertyName="ItemTemplate">
-                            <Core:ChangePropertyAction.Value>
-                                <ControlTemplate>
-                                    <Border BorderBrush="Green">
-                                        <Grid HorizontalAlignment="Stretch">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="1*"/>
-                                                <ColumnDefinition Width="3*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                            </Grid.RowDefinitions>
-
-                                            <CheckBox Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked, Mode=TwoWay}" MinWidth="0" VerticalAlignment="Center" />
-                                            <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />
-                                            <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
-                                            <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
-                                        </Grid>
-                                    </Border>
-                                </ControlTemplate>
-
-                            </Core:ChangePropertyAction.Value>
-                        </Core:ChangePropertyAction>
-                    </Core:DataTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>-->
-
             </ListBox>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">

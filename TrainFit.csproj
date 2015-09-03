@@ -102,6 +102,7 @@
     <Compile Include="Controls\LabelTextBlock.cs" />
     <Compile Include="Controls\Sidebar.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
+    <Compile Include="Converters\MultiValueDummyConverter.cs" />
     <Compile Include="DataModels\ExerciseDataModel.cs" />
     <Compile Include="Models\Difficulty.cs" />
     <Compile Include="Models\Exercise.cs" />
