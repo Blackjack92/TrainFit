@@ -14,10 +14,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
-    <Page.Resources>
-        <converter:MultiValueDummyConverter x:Key="DummyConverter" SelectedItem="{Binding}" />
-    </Page.Resources>
-    
     <Controls:HamburgerMenu>
         <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.RowDefinitions>
@@ -43,8 +39,8 @@
 
                                 <CheckBox Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked, Mode=TwoWay}" MinWidth="0" VerticalAlignment="Center" />
                                 <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />
-                                <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" Foreground="{Binding ElementName=listBox, Path=SelectedItem, Converter={StaticResource DummyConverter}}" />
-                                <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True"  />
+                                <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
+                                <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
                             </Grid>
                         </ContentControl>
                     </DataTemplate>
