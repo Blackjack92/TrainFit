@@ -21,8 +21,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
+            <!--Tapped="OnElementTapped"-->
             <ListBox x:Name="listBox" Grid.Row="0" ItemsSource="{Binding Exercises}"  Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
-                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" Tapped="OnElementTapped" BorderBrush="Transparent" BorderThickness="0">
+                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" BorderBrush="Transparent" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ContentControl x:Name="content">
@@ -48,8 +49,8 @@
             </ListBox>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <ToggleButton Content="Enable Selection" IsChecked="{Binding IsCreateTrainingEnabled}" Click="OnEnableSelectionClicked" />
-                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" Visibility="Visible" />
+                <ToggleButton Content="Enable Selection" IsChecked="{Binding IsCreateTrainingEnabled, Mode=TwoWay}" Click="OnEnableSelectionClicked" />
+                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" Visibility="{Binding IsCreateTrainingEnabled}"/>
             </StackPanel>
         </Grid>
     </Controls:HamburgerMenu>

@@ -26,18 +26,16 @@ namespace TrainFit.Views
         #region methods
         private void OnEnableSelectionClicked(object sender, RoutedEventArgs e)
         {
-            //var checkBoxes = XamlHelper.GetChildrenOfType<CheckBox>(listBox);
+            var checkBoxes = XamlHelper.GetChildrenOfType<CheckBox>(listBox);
 
-            var visibility = btnCreateTraining.Visibility == Visibility.Collapsed
-                 ? Visibility.Visible
-                 : Visibility.Collapsed;
+            var visibility = viewModel.IsCreateTrainingEnabled ? Visibility.Visible : Visibility.Collapsed;
+
+            foreach (var checkBox in checkBoxes)
+            {
+                checkBox.Visibility = visibility;
+            }
 
             btnCreateTraining.Visibility = visibility;
-
-            //foreach (var checkBox in checkBoxes)
-            //{
-            //    checkBox.Visibility = visibility;
-            //}
         }
 
         private void OnElementTapped(object sender, TappedRoutedEventArgs e)
@@ -55,70 +53,5 @@ namespace TrainFit.Views
         }
 
         #endregion
-
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
-
-        private void CheckBox_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_PointerReleased(object sender, PointerRoutedEventArgs e)
-        {
-            //e.Handled = true;
-        }
-
-        private void CheckBox_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_PointerCanceled(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-            e.Handled = true;
-        }
     }
 }
