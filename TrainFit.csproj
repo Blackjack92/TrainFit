@@ -101,6 +101,7 @@
     <Compile Include="Controls\ImageButton.cs" />
     <Compile Include="Controls\LabelTextBlock.cs" />
     <Compile Include="Controls\Sidebar.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\DummyConverter.cs" />
     <Compile Include="Converters\MultiValueDummyConverter.cs" />
     <Compile Include="DataModels\ExerciseDataModel.cs" />

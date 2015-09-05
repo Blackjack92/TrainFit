@@ -14,6 +14,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     storeApps:ViewModelLocator.AutoWireViewModel="True">
 
+    <Page.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Page.Resources>
+    
     <Controls:HamburgerMenu>
         <Grid Background="{StaticResource BaseTheme.LightWhite}">
             <Grid.RowDefinitions>
@@ -38,10 +42,10 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <CheckBox Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked, Mode=TwoWay}" MinWidth="0" VerticalAlignment="Center" />
+                                <CheckBox Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked, Mode=TwoWay}" MinWidth="0" VerticalAlignment="Center" Visibility="{Binding DataContext.IsCreateTrainingEnabled, ElementName=listBox, Converter={StaticResource BoolToVisibilityConverter}}" />
                                 <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />
-                                <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" IsReadOnly="True" />
-                                <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" IsReadOnly="True" />
+                                <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" />
+                                <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" />
                             </Grid>
                         </ContentControl>
                     </DataTemplate>
@@ -49,8 +53,8 @@
             </ListBox>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <ToggleButton Content="Enable Selection" IsChecked="{Binding IsCreateTrainingEnabled, Mode=TwoWay}" Click="OnEnableSelectionClicked" />
-                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" Visibility="{Binding IsCreateTrainingEnabled}"/>
+                <ToggleButton Content="Enable Selection" IsChecked="{Binding IsCreateTrainingEnabled, Mode=TwoWay}" />
+                <Button x:Name="btnCreateTraining" Content="Create training" Command="{Binding CreateTrainingCommand}" Visibility="{Binding IsCreateTrainingEnabled, Converter={StaticResource BoolToVisibilityConverter}}" />
             </StackPanel>
         </Grid>
     </Controls:HamburgerMenu>
