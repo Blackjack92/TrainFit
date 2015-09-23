@@ -16,6 +16,7 @@
 
     <Page.Resources>
         <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:ImageSourceToIconTemplateConverter x:Key="ImageSourceToIconTemplateConverter" />
     </Page.Resources>
     
     <Controls:HamburgerMenu>
@@ -43,7 +44,9 @@
                                 </Grid.RowDefinitions>
 
                                 <CheckBox Grid.Column="0" Grid.RowSpan="2" IsChecked="{Binding IsChecked, Mode=TwoWay}" MinWidth="0" VerticalAlignment="Center" Visibility="{Binding DataContext.IsCreateTrainingEnabled, ElementName=listBox, Converter={StaticResource BoolToVisibilityConverter}}" />
-                                <Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />
+                                <ContentControl Grid.Column="1" Template="{Binding ImageSource, Converter={StaticResource ImageSourceToIconTemplateConverter}}" Height="40" VerticalAlignment="Center" />
+
+                                <!--<Image Grid.Column="1" Grid.RowSpan="2" Source="{Binding ImageSource}" />-->
                                 <Controls:LabelTextBlock  Grid.Row="0" Grid.Column="2" Label="Name: " Text="{Binding Exercise.Name, Mode=OneWay}" VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" />
                                 <Controls:LabelTextBlock Grid.Row="1" Grid.Column="2" Label="Difficulty: " Text="{Binding Exercise.Difficulty, Mode=OneWay}" VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" />
                             </Grid>
