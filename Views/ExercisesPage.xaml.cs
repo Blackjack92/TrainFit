@@ -24,31 +24,21 @@ namespace TrainFit.Views
         #endregion
 
         #region methods
-        private void OnEnableSelectionClicked(object sender, RoutedEventArgs e)
-        {
-            var checkBoxes = XamlHelper.GetChildrenOfType<CheckBox>(listBox);
-
-            var visibility = viewModel.IsCreateTrainingEnabled ? Visibility.Visible : Visibility.Collapsed;
-
-            foreach (var checkBox in checkBoxes)
-            {
-                checkBox.Visibility = visibility;
-            }
-
-            btnCreateTraining.Visibility = visibility;
-        }
-
         private void OnElementTapped(object sender, TappedRoutedEventArgs e)
         {
             if (viewModel.IsCreateTrainingEnabled)
             {
-                var listBox = sender as ListBox;
-                if (listBox == null) { return; }
+                //var listBox = sender as ListBox;
+                //if (listBox == null) { return; }
 
-                var exercise = listBox.SelectedItem as ExerciseDataModel;
-                if (exercise == null) { return; }
+                //var exercise = listBox.SelectedItem as ExerciseDataModel;
+                //if (exercise == null) { return; }
 
-                exercise.IsChecked = !exercise.IsChecked;
+                //exercise.IsChecked = !exercise.IsChecked;
+            }
+            else
+            {
+                viewModel.SelectedExercise = listBox.SelectedItem as ExerciseDataModel;
             }
         }
 

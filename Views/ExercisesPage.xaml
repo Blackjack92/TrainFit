@@ -25,9 +25,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!--Tapped="OnElementTapped"-->
             <ListBox x:Name="listBox" Grid.Row="0" ItemsSource="{Binding Exercises}"  Background="{StaticResource BaseTheme.LightWhite}" HorizontalContentAlignment="Stretch" 
-                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" BorderBrush="Transparent" BorderThickness="0">
+                     SelectionMode="Single" SelectedItem="{Binding SelectedExercise, Mode=TwoWay}" BorderBrush="Transparent" BorderThickness="0"
+                     Tapped="OnElementTapped">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ContentControl x:Name="content">
