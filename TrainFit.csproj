@@ -86,9 +86,6 @@
     <SDKReference Include="Microsoft.VCLibs, version=12.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
     </SDKReference>
-    <SDKReference Include="SQLite.WP81, Version=3.8.10">
-      <Name>SQLite for Windows Phone 8.1</Name>
-    </SDKReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -114,7 +111,6 @@
     <Compile Include="Models\ExerciseType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Services\DatabaseService.cs" />
-    <Compile Include="Services\GPSService.cs" />
     <Compile Include="Services\IDatabaseService.cs" />
     <Compile Include="Services\IDataReader.cs" />
     <Compile Include="Services\IImageSourceProvider.cs" />
@@ -132,33 +128,13 @@
     <Compile Include="Utils\Navigate.cs" />
     <Compile Include="Utils\StaticReflection.cs" />
     <Compile Include="Utils\XamlHelper.cs" />
-    <Compile Include="ViewModels\ExercisesViewModel.cs" />
-    <Compile Include="ViewModels\ExerciseViewModel.cs" />
     <Compile Include="ViewModels\ExtendedViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\MapViewModel.cs" />
-    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TrainingsViewModel.cs" />
     <Compile Include="ViewModels\TrainingViewModel.cs" />
-    <Compile Include="Views\ExercisePage.xaml.cs">
-      <DependentUpon>ExercisePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ExercisesPage.xaml.cs">
-      <DependentUpon>ExercisesPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MapPage.xaml.cs">
-      <DependentUpon>MapPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RegisterPage.xaml.cs">
-      <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TrainingPage.xaml.cs">
       <DependentUpon>TrainingPage.xaml</DependentUpon>
@@ -333,27 +309,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ExercisePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ExercisesPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LoginPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MapPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

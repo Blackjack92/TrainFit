@@ -24,7 +24,6 @@ namespace TrainFit.ViewModels
 
         private void ChangeToRegisterPage()
         {
-            NavigationService.Navigate(Navigate.Register.PageName(), null);
         }
     }
 }

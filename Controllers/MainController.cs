@@ -25,7 +25,7 @@ namespace TrainFit.Controllers
         #region methods
         public void Run()
         {
-            NavigationService.Navigate("Login", null);
+            NavigationService.Navigate("Main", null);
         }
         #endregion
     }

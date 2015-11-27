@@ -4,13 +4,9 @@ namespace TrainFit.Utils
 {
     public enum Navigate
     {
-        Login,
         Main,
-        Register,
         Trainings,
-        Training,
-        Exercise,
-        Exercises
+        Training
     }
 
     static class NavigateExtensions
