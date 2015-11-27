@@ -253,7 +253,18 @@
                         BorderThickness="{TemplateBinding BorderThickness}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot"
+                                                                   Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.LightWhite}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                   Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.DarkBlue}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
                                 <VisualState x:Name="PointerOver">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot"
@@ -274,7 +285,7 @@
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
                                                                    Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.DarkBlue}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.LightWhite}" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -292,7 +303,18 @@
                                 </VisualState>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="SelectionStates">
-                                <VisualState x:Name="Unselected" />
+                                <VisualState x:Name="Unselected">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerGrid"
+                                                                   Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.LightWhite}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                   Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.DarkBlue}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
                                 <VisualState x:Name="Selected">
                                     <Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerGrid"
@@ -365,7 +387,17 @@
                                                      Storyboard.TargetProperty="Opacity"
                                                      To="1"
                                                      Duration="0" />
+                                        
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerGrid"
+                                                                   Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.DarkBlue}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter"
+                                                                   Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BaseTheme.LightWhite}" />
+                                        </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
+                                    
                                 </VisualState>
                                 <VisualState x:Name="Unfocused" />
                                 <VisualState x:Name="PointerFocused" />
